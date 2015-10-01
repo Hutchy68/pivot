@@ -5,7 +5,7 @@ This skin is based on a fork of and complete rework of the layout of the Foregro
 
 # MediaWiki Pivot Skin
 
-A [MediaWiki](http://www.mediawiki.org) skin that on mobile first but will pivot to all viewports with elegance. Supports responsive layouts and has classes predefined for [Semantic MediaWiki](http://semantic-mediawiki.org/wiki/Semantic_MediaWiki). Built on the [Zurb Foundation 5](http://foundation.zurb.com) CSS framework.
+A [MediaWiki](http://www.mediawiki.org) skin that focuses on mobile first but will pivot to all viewports with elegance. Supports responsive layouts and has classes predefined for [Semantic MediaWiki](http://semantic-mediawiki.org/wiki/Semantic_MediaWiki). Built on the [Zurb Foundation 5](http://foundation.zurb.com) CSS framework.
 
 ## Download
 
