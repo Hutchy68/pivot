@@ -1,5 +1,11 @@
 body { line-height: 1.6em; font-size: 16px; }
 
+@media only screen and (max-width: 40.0624em) {
+body, html, body > div, body > div > div {
+    height: 100%;
+}
+}
+
 p, ul, ol, dl { font-size: 16px; }
 
 #toc ul, .toc ul { font-size: 16px; }
@@ -378,7 +384,7 @@ table.wikitable > tr > th,
 table.wikitable > tr > td,
 table.wikitable > * > tr > th,
 table.wikitable > * > tr > td {
-  border: 3px #fff solid;
+  border: 2px #fff solid;
   padding: 0.6em;
 }
 
@@ -838,9 +844,25 @@ ul.side-nav input[type="search"] {
 	padding: 0 0 0 .5em;
 	color: #0645ad;
 }
+ul.off-canvas-list li label {
+	background: #c3c3e5;
+	border: none;
+	color: #222;
+}
+ul.off-canvas-list li a {
+	border: none;
+	background: transparent;
+	color: #8c489f;
+}
+ul.off-canvas-list li a:hover {
+    background: #eeffee;
+}
+.right-off-canvas-menu, .left-off-canvas-menu {
+	background: #f1f0ff;
+}
 
 .side-nav li a:not(.button):hover {
-    background: transparent;
+    background: #eeffee;
     color: #0b0080;
 }
 
@@ -848,7 +870,7 @@ ul.side-nav label {
     font-variant: small-caps;
     font-size: 1.2em;
     font-weight: bold;
-    border-bottom: 1px solid #ccc;
+    border: none;
     display: block;
 }
 body {
@@ -864,7 +886,7 @@ li.name.logo {
 	.tab-bar-section.middle { left: .8125rem; text-align: left; }
 }
 .tab-bar {
-	background: darkslateblue;
+	background: #443266;
 }
 
 /* TOC */
@@ -918,10 +940,10 @@ span#nav-main {
     line-height: 1.8em;
 }
 section.right-small {
-    border-left: 1px solid darkslateblue;
+    border-left: none;
 }
 section.left-small {
-    border-right: 1px solid darkslateblue;
+    border-right: none;
 }
 
 h5.subtitle {
