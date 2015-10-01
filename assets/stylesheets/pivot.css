@@ -1,11 +1,5 @@
 body { line-height: 1.6em; font-size: 16px; }
 
-@media only screen and (max-width: 40.0624em) {
-body, html, body > div, body > div > div {
-    height: 100%;
-}
-}
-
 p, ul, ol, dl { font-size: 16px; }
 
 #toc ul, .toc ul { font-size: 16px; }
