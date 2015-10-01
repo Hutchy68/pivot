@@ -11,7 +11,7 @@ This skin is a fork of and complete rework of the layout of the Foreground skin.
 
 First, copy the Pivot source files into your MediaWiki skins directory (see [skinning](https://www.mediawiki.org/wiki/Manual:Skinning) for general information on MediaWiki skins). You can either download the files and extract them from:
 
-    https://github.com/thingles/pivot/archive/master.zip
+    https://github.com/hutchy68/pivot/archive/master.zip
 
 You should extract that into a folder named `pivot` in your `skins` directory.
 
@@ -33,7 +33,7 @@ To activate Pivot for all users and anonymous visitors, you need to set the `$wg
 
     $wgDefaultSkin = "pivot";
 
-## Configuration
+## Configuration (*not all are usable, BETA*)
 
 Use following features in `LocalSettings.php` to change the behavior. 
 
@@ -74,7 +74,7 @@ and visitors will be able to remove this class by their own JavaScript or gadget
 
 ### Notes on other skins
 
-As you build a wiki out with Pivot you will likely use the responsive grid from Foundation. This is key to making a responsive wiki, and is one of the largest _migration_ requirements when you want to move a wiki that ppreviously used Vector (and likely a lot of tables for layout) to Pivot. Once you do this, the ability of a user to select whatever skin will be removed. If you take full advantage of Pivot in your templates the lack of the Foundation grid will make viewing the wiki using [Vector](http://wikiapiary.com/wiki/Skin:Vector) or [MonoBook](http://wikiapiary.com/wiki/Skin:MonoBook) very difficult.
+As you build a wiki out with Pivot you will likely use the responsive grid from Foundation. This is key to making a responsive wiki, and is one of the largest _migration_ requirements when you want to move a wiki that previously used Vector (and likely a lot of tables for layout) to Pivot. Once you do this, the ability of a user to select whatever skin will be removed. If you take full advantage of Pivot in your templates the lack of the Foundation grid will make viewing the wiki using [Vector](http://wikiapiary.com/wiki/Skin:Vector) or [MonoBook](http://wikiapiary.com/wiki/Skin:MonoBook) very difficult.
 
 Because of this, it is suggested that you set the `$wgSkipSkins` variable to make sure that everyone sees the site as you intended it. This removes other skins from being user selectable options.
 
@@ -88,4 +88,4 @@ You may also want to allow users to set a User CSS if they want to tweak things 
 
 ## Using Pivot
 
-There is a [mailing list to discuss Pivot](http://lists.thingelstad.com/cgi-bin/mailman/listinfo/pivot-l). Please join to connect with others and explore questions about using Pivot on your wiki. You can see a list of wikis with [Pivot installed at WikiApiary](http://wikiapiary.com/wiki/Skin:Pivot).
+Questions, open an issue in this repo on Github.
