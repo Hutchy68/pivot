@@ -184,26 +184,15 @@ div.small-9.columns textarea {
   margin-bottom: 0.25em;
 }
 
-footer.row {
-    padding-top: 1.5em;
-    text-align: center;
-    font-size: .8em;
-    color: #333;
-    max-width: 100%;
-    background-color: #fff;
-}
-
 div {
   line-height: 1.60em;
 }
-
 
 /* NOTICES, ALERTS, WARNINGS */
 div#userloginprompt, p#userloginlink {
   font-size: 80%;
 
 }
-
 
 /* LISTS */
 
@@ -222,15 +211,6 @@ ul#drop1.f-dropdown {
 
 .mw-content-ltr ul {
     margin: .5em 0 1em 2em;
-}
-
-footer.row ul {
-  list-style-type: none;
-  margin: .5em 0em;
-}
-
-footer.row ul.views.columns li {
-  margin-right: 1em;
 }
 
 .columns ul.special li {
@@ -264,10 +244,6 @@ footer.row ul.views.columns li {
 
 .mw-specialpages-table td ul.columns li {width: 50%;}
 
-/*#mw-content-text .columns li {float:none;width:90%;}*/
-
-footer.row ul.columns li { display: inline;float:none;}
-
 .columns #mw-normal-catlinks ul li {
   float: none;
   width: auto;
@@ -278,6 +254,66 @@ footer.row ul.columns li { display: inline;float:none;}
 }
 
 ul.vcard { padding: 0.5em 0.5em 0.55em 0.5em; }
+
+/*#mw-content-text .columns li {float:none;width:90%;}*/
+
+/* Footer Classes */
+
+footer.row ul.columns li { display: inline;float:none;}
+
+footer.row ul {
+  list-style-type: none;
+  margin: .5em 0em;
+}
+
+footer.row ul.views.columns li {
+  margin-right: 1em;
+}
+
+footer.row {
+    border-top: 1px solid #c3c3e5;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    color: #333;
+    max-width: 100%;
+    background-color: #fff;
+}
+@media only screen and (min-width: 1025px) { footer.row { padding-bottom: .5em } }
+
+ul#footer-left {
+    text-align: left;
+    font-size: 12px;
+}
+ul#footer-right {
+    text-align: right;
+    font-size: 12px;
+}
+li#footer-privacy {
+    float: left;
+    margin-right: 2em;
+}
+li#footer-about {
+    float: left;
+    margin-right: 2em;
+}
+ul#footer-right li {
+    float: right;
+    margin: 0 0 .5em .5em;
+}
+
+/* FollowUs AddThis Tweaks */
+li.social-follow {
+    width: 100%;
+}
+.addthis_horizontal_follow_toolbox {
+    float: right;
+    margin-bottom: .5em;
+}
+.social-links p {
+    margin:0 .2em 0 0;
+    font-weight: bold;
+}
+
 
 /* TABS */
 
@@ -1094,4 +1130,12 @@ td.htmlform-tip {
 .prefcache {
 	font-size: 90%;
 	margin-top: 1em;
+}
+
+/* Orbit Slider Overrides for MW */
+.orbit-container .orbit-slides-container img {
+    width: 100%;
+}
+.orbit-bullets {
+    margin: 0 auto 30px auto !important;
 }

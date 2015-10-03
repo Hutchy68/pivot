@@ -16,15 +16,17 @@ class Skinpivot extends SkinTemplate {
 		global $wgPivotFeatures;
 		$wgPivotFeaturesDefaults = array(
 			'showActionsForAnon' => true,
-			'NavWrapperType' => '0',
+			'fixedNavBar' => false,
 			'showHelpUnderTools' => true,
 			'showRecentChangesUnderTools' => true,
 			'wikiName' => &$GLOBALS['wgSitename'],
 			'wikiNameDesktop' => &$GLOBALS['wgSitename'],
-			'navbarIcon' => false,
+			'navbarIcon' => true,
 			'IeEdgeCode' => 1,
-			'showFooterIcons' => 0,
-			'addThisFollowPUBID' => ''
+			'showFooterIcons' => false,
+			'addThisPUBID' => '',
+			'useAddThisShare' => false,
+			'useAddThisFollow' => false
 		);
 		foreach ($wgPivotFeaturesDefaults as $fgOption => $fgOptionValue) {
 			if ( !isset($wgPivotFeatures[$fgOption]) ) {
@@ -61,16 +63,6 @@ class pivotTemplate extends BaseTemplate {
 		global $wgPivotFeatures;
 		wfSuppressWarnings();
 		$this->html('headelement');
-		switch ($wgPivotFeatures['NavWrapperType']) {
-			case '0':
-				break;
-			case 'divonly':
-				echo "<div id='navwrapper'>";
-				break;
-			default:
-				echo "<div id='navwrapper' class='". $wgPivotFeatures['NavWrapperType']. "'>";
-				break;
-		}
 		switch ($wgPivotFeatures['usePivotTabs']) {
 			case 'true':
 			    ob_start();
@@ -84,24 +76,46 @@ class pivotTemplate extends BaseTemplate {
 			default:
 				break;
 		}
+		switch ($wgPivotFeatures['showFooterIcons']) {
+			case true:
+				$footerLeftClass = 'small-12 medium-8 large-9 columns';
+				$footerRightClass = 'small-12 medium-4 large-3 columns';
+				$poweredbyType = "icononly";
+				$poweredbyMakeType = 'withImage';
+				break;
+			default:
+				$footerLeftClass = 'small-12 medium-8 large-9 columns';
+				$footerRightClass = 'small-12 medium-4 large-3 columns';
+				$poweredbyType = "nocopyright";
+				$poweredbyMakeType = 'withoutImage';
+				break;	
+		}
 
 ?>
 <!-- START FOREGROUNDTEMPLATE -->
 		<div class="off-canvas-wrap docs-wrap" data-offcanvas="">
 			<div class="inner-wrap">
+				<?php if ($wgPivotFeatures['fixedNavBar'] != false) echo "<div class='fixed'>";?>
 				<nav class="tab-bar">
 					<section class="left-small show-for-small">
 						<a class="left-off-canvas-toggle"><span id="menu-user"><i class="fa fa-navicon fa-lg"></i></span></a>
 					</section>
 					
 					<section class="middle tab-bar-section">
-						<h1 class="title"><a href="<?php echo $this->data['nav_urls']['mainpage']['href']; ?>"><span class="show-for-medium-up"><?php echo $wgPivotFeatures['wikiNameDesktop']; ?></span><span class="show-for-small-only"><?php echo $wgPivotFeatures['wikiName']; ?></span></a></h1>
+						<h1 class="title"><a href="<?php echo $this->data['nav_urls']['mainpage']['href']; ?>">
+					<span class="show-for-medium-up"><?php echo $wgPivotFeatures['wikiNameDesktop']; ?></span>
+						<span class="show-for-small-only">
+						<?php if ($wgPivotFeatures['navbarIcon'] != false) { ?>
+							<img alt="<?php echo $this->text('sitename'); ?>" src="<?php echo $this->text('logopath'); ?>" style="max-width: 64px;height:auto; max-height:36px; display: inline-block; vertical-align:middle;">
+								<?php } ?>
+						<?php echo $wgPivotFeatures['wikiName']; ?></span></a></h1>
 					</section>
 					
 					<section class="right-small">
 					<a class="right-off-canvas-toggle"><span id="menu-user"><i class="fa fa-user fa-lg"></i></span></a>
 					</section>
-				</nav>		
+				</nav>
+				<?php if ($wgPivotFeatures['fixedNavBar'] != false) echo "</div>";?>
 				    <aside class="left-off-canvas-menu">
       					<ul class="off-canvas-list">
 						
@@ -143,9 +157,8 @@ class pivotTemplate extends BaseTemplate {
       </ul>
     </aside>
 
-<section class="main-section">
-		<?php if ($wgPivotFeatures['NavWrapperType'] != '0') echo "</div>"; ?>
-		
+<section class="main-section" <?php if ($wgPivotFeatures['fixedNavBar'] != false) echo "style='margin-top:2.8125em'"; ?>>
+	
 		<div id="page-content">
 			
 			<div id="mw-js-message" style="display:none;"></div>
@@ -194,7 +207,7 @@ class pivotTemplate extends BaseTemplate {
 					</div>
 				
 					<?php if ($wgUser->isLoggedIn() || $wgPivotFeatures['showActionsForAnon']): ?>
-						<a href="#" data-options="align:left" data-dropdown="drop1" class="button secondary small radius pull-right" id="drop"><i class="fa fa-navicon fa-lg"><span id="page-actions" class="show-for-medium-up">&nbsp;Page&nbsp;<?php echo wfMessage( 'actions' )->text() ?></span></i></a>
+						<a href="#" data-options="align:left" data-dropdown="drop1" class="button secondary small radius pull-right" id="drop"><i class="fa fa-navicon fa-lg"><span id="page-actions" class="show-for-medium-up">&nbsp;<?php echo wfMessage( 'actions' )->text() ?></span></i></a>
 						<ul id="drop1" class="tiny content f-dropdown" data-dropdown-content>
 							<?php foreach( $this->data['content_actions'] as $key => $item ) { echo preg_replace(array('/\sprimary="1"/','/\scontext="[a-z]+"/','/\srel="archives"/'),'',$this->makeListItem($key, $item)); } ?>
 							<?php wfRunHooks( SkinTemplateToolboxEnd, array( &$this, true ) );  ?>
@@ -211,6 +224,10 @@ class pivotTemplate extends BaseTemplate {
 						$displaytitle = str_replace($pagetitle, $newtitle, $displaytitle);
 					?><h4 class="namespace label"><?php print $namespace; ?></h4><?php } ?>
 					<h2 class="title"><?php print $displaytitle; ?></h2>
+							<!-- Go to www.addthis.com/dashboard to customize your tools -->
+							<div class="addthis_sharing_toolbox show-for-large-up"></div>
+							<!-- Go to www.addthis.com/dashboard to customize your tools -->
+							<!-- moved to resource loader <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50f7269b339fed7f" async="async"></script> -->
 					<?php if ( $this->data['isarticle'] ) { ?><h3 id="tagline"><?php $this->msg( 'tagline' ) ?></h3><?php } ?>
 					<h5 class="subtitle"><?php $this->html('subtitle') ?></h5>
 					<div class="clear_both"></div>
@@ -234,18 +251,33 @@ class pivotTemplate extends BaseTemplate {
 									
 				<footer class="row">
 
-					<ul class="large-12 columns">
-					<?php foreach ( $this->getFooterLinks( "flat" ) as $key ) { ?>
-						<li id="footer-<?php echo $key ?>"><?php $this->html( $key ) ?></li>
-					<?php } ?>
-					</ul>
-					<ul> <?php foreach ( $this->getFooterIcons( "nocopyright" ) as $blockName => $footerIcons ) { ?>
-						<li class="<?php echo $blockName ?>"><?php foreach ( $footerIcons as $icon ) { ?>
-					<?php echo $this->getSkin()->makeFooterIcon( $icon, 'withoutImage' ); ?>
+					<div id="footer">
+						<div id="footer-left" class="<?php echo $footerLeftClass;?>">
+						<ul id="footer-left">
+							<?php foreach ( $this->getFooterLinks( "flat" ) as $key ) { ?>
+								<li id="footer-<?php echo $key ?>"><?php $this->html( $key ) ?></li>
+							<?php } ?>									
+						</ul>
+						</div>	
+						<div id="footer-right-icons" class="<?php echo $footerRightClass;?>">
+						<ul id="footer-right">
+							<li class="social-follow">
+								<?php if ($wgPivotFeatures['addThisFollow'] != false) { ?>
+									<div class="social-links">
+										<!-- Go to www.addthis.com/dashboard to customize your tools -->
+										<div class="addthis_horizontal_follow_toolbox show-for-large-up"></div>
+									</div>
+								<?php } ?>
+							</li>
+							<?php foreach ( $this->getFooterIcons( $poweredbyType ) as $blockName => $footerIcons ) { ?>
+								<li class="<?php echo $blockName ?>"><?php foreach ( $footerIcons as $icon ) { ?>
+									<?php echo $this->getSkin()->makeFooterIcon( $icon, $poweredbyMakeType ); ?>
 									<?php } ?>
-					</li>
+								</li>
 							<?php } ?>
-					</ul>
+						</ul>
+						</div>		
+					</div>			
 				</footer>
 				
 		    </div>
@@ -261,6 +293,9 @@ class pivotTemplate extends BaseTemplate {
 		
 		<?php $this->printTrail(); ?>
 
+			<?php if ($wgForegroundFeatures['addThisFollowPUBID'] != '') { ?>
+				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $wgForegroundFeatures['addThisPUBID'];?>" async="async">></script>
+			<?php } ?>	
 		</body>
 		</html>
 
