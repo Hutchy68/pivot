@@ -33,7 +33,7 @@ To activate Pivot for all users and anonymous visitors, you need to set the `$wg
 
     $wgDefaultSkin = "pivot";
 
-## Configuration (*not all are usable, BETA*)
+## Configurations
 
 Use following features in `LocalSettings.php` to change the behavior. 
 
@@ -44,7 +44,7 @@ Use following features in `LocalSettings.php` to change the behavior.
 - `'fixedNavBar' => false` will allow the NavBar to scroll with the content, `true` will lock the NavBar.
 - `'navbarIcon' => false` no icon in mobile view, `true` to use the global set logopath image of the wiki.
 - `'showFooterIcons' => false` will show text in place of footer icons, `true` will output the icons as globally set.
-- `'addThisPUBID' => '' empty string will not fire the AddThis script, `'ra-##-#######'` publisher ID will allow the run the AddThis script in async.
+- `'addThisPUBID' => ''` empty string will not fire the AddThis script, `'ra-##-#######'` publisher ID will allow the run the AddThis script in async.
 - `'useAddThisShare' => false` default, do not use AddThis share, `true` will insert the share toolbox div directly under page title, but before the tagline.
 - `'useAddThisFollow' => false` default, do not use AddThis follow, `true` will insert the follow toolbox div in the `right-footer` area before icon or text output.
 
@@ -64,24 +64,6 @@ These are the default values:
 		'useAddThisShare' => false,
 		'useAddThisFollow' => false
     );
-
-### Usage of NavWrapperType
-
-With a setting like:
-
-    'NavWrapperType' => 'divonly'
-
-and the created div called `navwrapper` anonymous visitors can change the setting of navbar (fixed or sticky) by 
-User-Script (Firefox-extensions like greasemonkey or scriptish), users can take a gadget or their JavaScript, CSS ... :
-
-    $('#navwrapper').addClass('sticky');
-
-
-Or you set class in LocalSettings.php with:
-
-    'NavWrapperType' => 'contain-to-grid fixed'
-
-and visitors will be able to remove this class by their own JavaScript or gadget ...
 
 
 ### Notes on other skins
