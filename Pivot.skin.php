@@ -21,7 +21,7 @@ class Skinpivot extends SkinTemplate {
 			'showRecentChangesUnderTools' => true,
 			'wikiName' => &$GLOBALS['wgSitename'],
 			'wikiNameDesktop' => &$GLOBALS['wgSitename'],
-			'navbarIcon' => true,
+			'navbarIcon' => false,
 			'IeEdgeCode' => 1,
 			'showFooterIcons' => false,
 			'addThisPUBID' => '',
