@@ -64,7 +64,7 @@ $messages['ar'] = array(
  */
 $messages['fr'] = array(
 	'skinname-pivot' => 'Pivot',
-	'pivot-desc' => 'Un skin pour mobiles qui permet un affichage du contenu pour tous types d'affichages.',
-	'pivot-browsermsg' => 'l'affichage sur cette version d'Internet Explorer peut être altéré. Nous vous recommandons de la mettre à jour niveau vers une version plus récente d'Internet Explorer ou de passer à un autre navigateur tel que Firefox ou Chrome.',
+	'pivot-desc' => 'Un skin pour mobiles qui permet un affichage du contenu pour tous types d\'affichages.',
+	'pivot-browsermsg' => 'l\'affichage sur cette version d\'Internet Explorer peut être altéré. Nous vous recommandons de la mettre à jour niveau vers une version plus récente d\Internet Explorer ou de passer à un autre navigateur tel que Firefox ou Chrome.',
 	'pivot-menutitle' => 'Menu'
 );
