@@ -101,6 +101,9 @@ color: #fff;
 ul.off-canvas-list form#searchform {
 margin: 1em;
 }
+ul.off-canvas-list form#searchform-offcanvas {
+    margin: 1em;
+}
 a.feedlink {
 background: none;
 }
