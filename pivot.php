@@ -9,7 +9,7 @@
  * @license 2-clause BSD
  */
 
-if( ! defined( 'MEDIAWIKI' ))
+if ( ! defined('MEDIAWIKI'))
 {
 	die("Wiki Wonders What You're Doing");
 }
