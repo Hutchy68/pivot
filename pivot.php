@@ -18,7 +18,7 @@ if ( ! defined('MEDIAWIKI'))
 
 $wgExtensionCredits['skin'][] = array(
 	'path'		 => __FILE__,
-	'name'		 => 'Pivot',
+	'name'		 => 'skinname-pivot',
 	'url'		 => 'http://github.com/hutchy68/pivot/',
 	'author'	 => array(
 		'Tom Hutchison',
@@ -33,8 +33,6 @@ $wgValidSkinNames['pivot'] = 'Pivot';
 $wgAutoloadClasses['SkinPivot'] = __DIR__.'/Pivot.skin.php';
 
 $wgMessagesDirs['SkinPivot'] = __DIR__ . '/i18n';
-
-$wgExtensionMessagesFiles['SkinPivot'] = __DIR__ . '/Pivot.i18n.php';
 
 $wgResourceModules['skins.pivot'] = array(
 	'styles'         => array(

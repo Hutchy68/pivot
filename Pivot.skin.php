@@ -212,8 +212,9 @@ class pivotTemplate extends BaseTemplate {
 											<!-- Go to www.addthis.com/dashboard to customize your tools -->
 											<?php } ?>
 									<?php if ( $this->data['isarticle'] ) { ?><h3 id="tagline"><?php $this->msg( 'tagline' ) ?></h3><?php } ?>
-									<h5 class="subtitle"><?php $this->html('subtitle') ?></h5>
-									<div class="clear_both"></div>
+									<h5 id="sitesub" class="subtitle"><?php $this->html('subtitle') ?></h5>
+									<div id="contentSub" class="clear_both"></div>
+									<div id="bodyContent" class="mw-bodytext">
 									<?php 
 									switch ($wgPivotFeatures['usePivotTabs']) {
 										case true:
@@ -225,6 +226,8 @@ class pivotTemplate extends BaseTemplate {
 											break;
 									}
 									 ?>
+									<div class="clear_both"></div>
+									</div>
 									<div id="categories" class="row">
 										<div class="small-12 columns">
 											<div class="group"><?php $this->html('catlinks'); ?></div>
