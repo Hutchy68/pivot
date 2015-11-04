@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tom Hutchison"
+		]
+	},
+	"skinname-pivot": "name of skin",
+	"pivot-desc": "description of skin",
+	"pivot-browsermsg": "old versions of IE not supported message",
+	"pivot-menutitle": "menu title"
+}
