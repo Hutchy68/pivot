@@ -64,7 +64,7 @@ class pivotTemplate extends BaseTemplate {
 		wfSuppressWarnings();
 		$this->html('headelement');
 		switch ($wgPivotFeatures['usePivotTabs']) {
-			case 'true':
+			case true:
 			    ob_start();
 				$this->html('bodytext'); 
 				$out = ob_get_contents();
@@ -296,7 +296,7 @@ class pivotTemplate extends BaseTemplate {
 		
 		<?php $this->printTrail(); ?>
 
-			<?php if ($wgForegroundFeatures['addThisFollowPUBID'] != '') { ?>
+			<?php if ($wgPivotFeatures['addThisFollowPUBID'] != '') { ?>
 				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $wgForegroundFeatures['addThisPUBID'];?>" async="async">></script>
 			<?php } ?>	
 		</body>
