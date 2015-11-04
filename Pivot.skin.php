@@ -74,6 +74,7 @@ class pivotTemplate extends BaseTemplate {
 				$body = str_replace($markers, $tags, $out);
 				break;	
 			default:
+				$body = '';
 				break;
 		}
 		switch ($wgPivotFeatures['showFooterIcons']) {
@@ -235,7 +236,7 @@ class pivotTemplate extends BaseTemplate {
 									<div class="clear_both"></div>
 									<?php 
 									switch ($wgPivotFeatures['usePivotTabs']) {
-										case 'true':
+										case true:
 											echo $body;
 											ob_flush();
 											break;

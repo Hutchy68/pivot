@@ -213,6 +213,10 @@ ul#drop1.f-dropdown {
     margin: .5em 0 1em 2em;
 }
 
+ul.accordion {
+	margin: 0;
+}
+
 .columns ul.special li {
   float:none;
   width: 100%;
