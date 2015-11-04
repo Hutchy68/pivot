@@ -32,7 +32,9 @@ $wgValidSkinNames['pivot'] = 'Pivot';
 
 $wgAutoloadClasses['SkinPivot'] = __DIR__.'/Pivot.skin.php';
 
-$wgExtensionMessagesFiles['SkinPivot'] = __DIR__.'/Pivot.i18n.php';
+$wgMessagesDirs['SkinPivot'] = __DIR__ . '/i18n';
+
+$wgExtensionMessagesFiles['SkinPivot'] = __DIR__ . '/Pivot.i18n.php';
 
 $wgResourceModules['skins.pivot'] = array(
 	'styles'         => array(

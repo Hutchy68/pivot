@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Garrick Van Buren"
+		]
+	},
+	"skinname-pivot": "Pivot",
+	"pivot-desc": "A mobile skin which \"Pivots\" seamlessly to any size display.",
+	"pivot-browsermsg": "may not look as expected in this version of Internet Explorer. We recommend you upgrade to a newer version of Internet Explorer or switch to a browser like Firefox or Chrome.",
+	"pivot-menutitle": "Menu"
+}

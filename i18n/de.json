@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kghbln"
+		]
+	},
+	"skinname-pivot": "Pivot",
+	"pivot-desc": "Stellt eine Benutzeroberfläche bereit, die die Inhalte des Wikis betont",
+	"pivot-browsermsg": "sieht in dieser Version des Internet Explorers nicht wie gewünscht aus. Es wird ein Upgrade des Internet Explorers oder der Umstieg auf einen Browser wie Firefox oder Chrome empfohlen.",
+	"pivot-menutitle": "Menü"
+}
