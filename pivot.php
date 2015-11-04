@@ -5,7 +5,7 @@
  *
  * @file
  * @ingroup Skins
- * @author Garrick Van Buren, Jamie Thingelstad
+ * @author Garrick Van Buren, Jamie Thingelstad, Tom Hutchison
  * @license 2-clause BSD
  */
 
@@ -23,7 +23,11 @@ $wgExtensionCredits['skin'][] = array(
 		'Tom Hutchison',
 		'...'
 		),
+<<<<<<< HEAD
 	'version' => '1.0.0 rc',
+=======
+	'version' => '1.0.0 rc-1',
+>>>>>>> a15db36587f26f9360de0f80312f95b9171ae7dd
 	'descriptionmsg' => 'pivot-desc'
 );
 
