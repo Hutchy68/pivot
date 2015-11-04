@@ -2,6 +2,8 @@ body { line-height: 1.6em; font-size: 16px; }
 
 p, ul, ol, dl { font-size: 16px; }
 
+h4,h5,h6 {color: 2e2e2e;}
+
 #toc ul, .toc ul { font-size: 16px; }
 
 @media only screen and (min-width: 40.0625em) {
@@ -10,7 +12,7 @@ p, ul, ol, dl { font-size: 14px; }
 #toc ul, .toc ul { font-size:  13.3px; }
 }
 
-p, table { margin-bottom: 1em; max-width: 100%; }
+p, table { border: none; margin-bottom: 1em; max-width: 100%; }
 
 
 a.label:hover,
@@ -72,15 +74,23 @@ body.action-formedit .row.hide-on-form-edit { display: none;}
 }
 #p-cactions #drop1 a:hover {
     background-color: #eee;
-	color: darkslateblue;
+    color: darkslateblue;
 }
 #p-cactions > a.button {
 float:right; }
 
+/* Fix scaling issue for menu icon */
+@media only screen and (min-width: 40.0625em) {
+    #drop .fa.fa-navicon.fa-lg {
+    font-size: 1.25em;
+}
+
 span#page-actions {
-	font-size: .75em;
+    font-size: 0.85em;
     font-family: sans-serif;
-    vertical-align: top;
+    vertical-align: middle;
+    padding:0 0 0 10px;
+}
 }
 
 /* Make sure top bar is even more z-indx! */
@@ -98,11 +108,8 @@ color: #eee;
 section.middle.tab-bar-section a {
 color: #fff;
 }
-ul.off-canvas-list form#searchform {
-margin: 1em;
-}
 ul.off-canvas-list form#searchform-offcanvas {
-    margin: 1em;
+margin: 1em;
 }
 a.feedlink {
 background: none;
@@ -211,15 +218,12 @@ ul#drop1.f-dropdown {
     color: #222;
     border-bottom: 1px solid #eee;
 }
-
 .mw-content-ltr ul {
     margin: .5em 0 1em 2em;
 }
-
 ul.accordion {
 	margin: 0;
 }
-
 .columns ul.special li {
   float:none;
   width: 100%;
@@ -321,6 +325,22 @@ li.social-follow {
     font-weight: bold;
 }
 
+/* Fix Tables on narrow pages for Special Pages and Category Pages */
+@media screen and (max-width:782px) {
+    .ns-14 #mw-subcategories table td,
+    .ns-14 #mw-pages table td,
+    .ns--1 table.mw-specialpages-table td {
+    display: inline;
+}
+.ns-14 table,
+.ns--1 table {
+    overflow:hidden;
+}
+.ns-14 table ul,
+.ns--1 table ul {
+    margin: 0 0 0 2em;
+}
+}
 
 /* TABS */
 
@@ -852,7 +872,7 @@ body.mw-special-Userlogin h2.title {
 }
 
 /* Aside CSS */
-ul.off-canvas-list input#searchInput,
+ul.off-canvas-list input#searchInput-offcanvas,
 ul.off-canvas-list button.button.search {
 height: 2rem;
 margin: 0;
@@ -875,7 +895,8 @@ ul.side-nav .button {
     margin: 0;
 }
 ul.side-nav input[type="search"] {
-    height: 2.1em;
+    height: 1.9rem;
+    font-size: 0.9rem;
 }
 .side-nav li a:not(.button) {
 	padding: 0 0 0 .5em;
@@ -898,8 +919,9 @@ ul.off-canvas-list li a:hover {
 	background: #f1f0ff;
 }
 
-.side-nav li a:not(.button):hover {
-    background: #eeffee;
+.side-nav li a:not(.button):hover,
+.side-nav li a:not(.button):focus {
+    background: transparent;
     color: #0b0080;
 }
 
@@ -915,7 +937,6 @@ body {
 }
 li.name.logo {
     margin-bottom: 1em;
-    display: table;
     margin-right: auto;
     margin-left: auto;
 }
@@ -1145,4 +1166,15 @@ td.htmlform-tip {
 }
 .orbit-bullets {
     margin: 0 auto 30px auto !important;
+}
+
+/* Block-Grid UL fixes */
+ul[class*="block-grid"] {
+    margin: 0;
+}
+
+/* WikiEditor Label Fix */
+.wikiEditor-ui-toolbar .label {
+    background: transparent;
+    color: #000;
 }

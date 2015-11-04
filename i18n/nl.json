@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Marijke Stuivenberg"
+		]
+	},
+	"skinname-pivot": "Pivot",
+	"pivot-desc": "Biedt een uiterlijk dat er voor zorgt dat de inhoud op de voorgrond wordt weergegeven",
+	"pivot-browsermsg": "wordt mogelijk niet goed weergegeven in deze versie van Internet Explorer. Aanbevolen wordt te upgraden naar een nieuwere versie van Internet Explorer of om te schakelen naar een browser zoals Firefox of Chrome.",
+	"pivot-menutitle": "Menu"
+}

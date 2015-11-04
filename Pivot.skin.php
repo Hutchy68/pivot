@@ -45,7 +45,7 @@ class Skinpivot extends SkinTemplate {
 		$out->addModuleStyles('skins.pivot');
 	}
 
-	public function initPage( OutputPage $out ) {
+	public function initPage(OutputPage $out) {
 		global $wgLocalStylePath;
 		parent::initPage($out);
 
@@ -69,8 +69,8 @@ class pivotTemplate extends BaseTemplate {
 				$this->html('bodytext'); 
 				$out = ob_get_contents();
 				ob_end_clean();
-				$markers   = array("&lt;a", "&lt;/a", "&gt;");
-				$tags   = array("<a", "</a", ">");
+				$markers = array("&lt;a", "&lt;/a", "&gt;");
+				$tags = array("<a", "</a", ">");
 				$body = str_replace($markers, $tags, $out);
 				break;	
 			default:
@@ -79,14 +79,10 @@ class pivotTemplate extends BaseTemplate {
 		}
 		switch ($wgPivotFeatures['showFooterIcons']) {
 			case true:
-				$footerLeftClass = 'small-12 medium-8 large-9 columns';
-				$footerRightClass = 'small-12 medium-4 large-3 columns';
 				$poweredbyType = "icononly";
 				$poweredbyMakeType = 'withImage';
 				break;
 			default:
-				$footerLeftClass = 'small-12 medium-8 large-9 columns';
-				$footerRightClass = 'small-12 medium-4 large-3 columns';
 				$poweredbyType = "nocopyright";
 				$poweredbyMakeType = 'withoutImage';
 				break;	
@@ -96,7 +92,7 @@ class pivotTemplate extends BaseTemplate {
 <!-- START PIVOTTEMPLATE -->
 		<div class="off-canvas-wrap docs-wrap" data-offcanvas="">
 			<div class="inner-wrap">
-				<?php if ($wgPivotFeatures['fixedNavBar'] != false) echo "<div class='fixed'>";?>
+				<?php if ($wgPivotFeatures['fixedNavBar'] != false) echo "<div class='fixed'>"; ?>
 				<nav class="tab-bar">
 					<section id="left-nav-aside" class="left-small show-for-small">
 						<a class="left-off-canvas-toggle"><span id="menu-user"><i class="fa fa-navicon fa-lg"></i></span></a>
@@ -116,7 +112,7 @@ class pivotTemplate extends BaseTemplate {
 					<a class="right-off-canvas-toggle"><span id="menu-user"><i class="fa <?php if ($wgUser->isLoggedIn()): ?>fa-user<?php else: ?>fa-navicon<?php endif; ?> fa-lg"></i></span></a>
 					</section>
 				</nav>
-				<?php if ($wgPivotFeatures['fixedNavBar'] != false) echo "</div>";?>
+				<?php if ($wgPivotFeatures['fixedNavBar'] != false) echo "</div>"; ?>
 				    <aside class="left-off-canvas-menu">
       					<ul class="off-canvas-list">
 						
@@ -138,7 +134,7 @@ class pivotTemplate extends BaseTemplate {
 					  <ul class="off-canvas-list">
 					<?php if ($wgUser->isLoggedIn()): ?>
 						<li id="personal-tools"><label>Personal</label></li>
-						<?php foreach ( $this->getPersonalTools() as $key => $item ) { echo $this->makeListItem($key, $item); } ?>
+						<?php foreach ($this->getPersonalTools() as $key => $item) { echo $this->makeListItem($key, $item); } ?>
 							<?php else: ?>
 								<?php if (isset($this->data['personal_urls']['anonlogin'])): ?>
 									<li><a href="<?php echo $this->data['personal_urls']['anonlogin']['href']; ?>"><?php echo wfMessage( 'login' )->text() ?></a></li>
@@ -195,8 +191,8 @@ class pivotTemplate extends BaseTemplate {
 									<?php if ($wgUser->isLoggedIn() || $wgPivotFeatures['showActionsForAnon']): ?>
 										<a href="#" data-options="align:left" data-dropdown="drop1" class="button secondary small radius pull-right" id="drop"><i class="fa fa-navicon fa-lg"><span id="page-actions" class="show-for-medium-up">&nbsp;<?php echo wfMessage( 'actions' )->text() ?></span></i></a>
 										<ul id="drop1" class="tiny content f-dropdown" data-dropdown-content>
-											<?php foreach( $this->data['content_actions'] as $key => $item ) { echo preg_replace(array('/\sprimary="1"/','/\scontext="[a-z]+"/','/\srel="archives"/'),'',$this->makeListItem($key, $item)); } ?>
-											<?php wfRunHooks( SkinTemplateToolboxEnd, array( &$this, true ) );  ?>
+											<?php foreach($this->data['content_actions'] as $key => $item) { echo preg_replace(array('/\sprimary="1"/', '/\scontext="[a-z]+"/', '/\srel="archives"/'),'',$this->makeListItem($key, $item)); } ?>
+											<?php wfRunHooks(SkinTemplateToolboxEnd, array(&$this, true));  ?>
 										</ul>
 										<?php if ($wgUser->isLoggedIn()): ?>
 											<div id="echo-notifications"></div>
@@ -239,14 +235,14 @@ class pivotTemplate extends BaseTemplate {
 									<footer class="row">
 
 										<div id="footer">
-											<div id="footer-left" class="<?php echo $footerLeftClass;?>">
+											<div id="footer-left" class="small-12 medium-8 large-9 columns">
 											<ul id="footer-left">
-												<?php foreach ( $this->getFooterLinks( "flat" ) as $key ) { ?>
-													<li id="footer-<?php echo $key ?>"><?php $this->html( $key ) ?></li>
+												<?php foreach ($this->getFooterLinks("flat") as $key) { ?>
+													<li id="footer-<?php echo $key ?>"><?php $this->html($key) ?></li>
 												<?php } ?>									
 											</ul>
 											</div>	
-											<div id="footer-right-icons" class="<?php echo $footerRightClass;?>">
+											<div id="footer-right-icons" class="small-12 medium-4 large-3 columns">
 											<ul id="footer-right">
 												<li class="social-follow">
 													<?php if ($wgPivotFeatures['useAddThisFollow'] != false) { ?>
@@ -256,9 +252,9 @@ class pivotTemplate extends BaseTemplate {
 														</div>
 													<?php } ?>
 												</li>
-												<?php foreach ( $this->getFooterIcons( $poweredbyType ) as $blockName => $footerIcons ) { ?>
-													<li class="<?php echo $blockName ?>"><?php foreach ( $footerIcons as $icon ) { ?>
-														<?php echo $this->getSkin()->makeFooterIcon( $icon, $poweredbyMakeType ); ?>
+												<?php foreach ($this->getFooterIcons($poweredbyType) as $blockName => $footerIcons) { ?>
+													<li class="<?php echo $blockName ?>"><?php foreach ($footerIcons as $icon) { ?>
+														<?php echo $this->getSkin()->makeFooterIcon($icon, $poweredbyMakeType); ?>
 														<?php } ?>
 													</li>
 												<?php } ?>
@@ -282,7 +278,7 @@ class pivotTemplate extends BaseTemplate {
 		<?php $this->printTrail(); ?>
 
 			<?php if ($wgPivotFeatures['addThisFollowPUBID'] != '') { ?>
-				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $wgPivotFeatures['addThisPUBID'];?>" async="async">></script>
+				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $wgPivotFeatures['addThisPUBID']; ?>" async="async">></script>
 			<?php } ?>	
 		</body>
 		</html>
