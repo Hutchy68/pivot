@@ -92,7 +92,7 @@ class pivotTemplate extends BaseTemplate {
 		}
 
 ?>
-<!-- START FOREGROUNDTEMPLATE -->
+<!-- START PIVOTTEMPLATE -->
 		<div class="off-canvas-wrap docs-wrap" data-offcanvas="">
 			<div class="inner-wrap">
 				<?php if ($wgPivotFeatures['fixedNavBar'] != false) echo "<div class='fixed'>";?>
@@ -297,7 +297,7 @@ class pivotTemplate extends BaseTemplate {
 		<?php $this->printTrail(); ?>
 
 			<?php if ($wgPivotFeatures['addThisFollowPUBID'] != '') { ?>
-				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $wgForegroundFeatures['addThisPUBID'];?>" async="async">></script>
+				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $wgPivotFeatures['addThisPUBID'];?>" async="async">></script>
 			<?php } ?>	
 		</body>
 		</html>
