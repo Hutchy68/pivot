@@ -23,11 +23,9 @@ $wgExtensionCredits['skin'][] = array(
 		'Tom Hutchison',
 		'...'
 		),
-<<<<<<< HEAD
 	'version' => '1.0.0 rc',
 =======
 	'version' => '1.0.0 rc-1',
->>>>>>> a15db36587f26f9360de0f80312f95b9171ae7dd
 	'descriptionmsg' => 'pivot-desc'
 );
 
