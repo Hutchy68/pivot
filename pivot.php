@@ -3,15 +3,16 @@
 /**
  * Pivot Skin
  *
- * @file
+ * @file Since Version 1.0
  * @ingroup Skins
  * @author Garrick Van Buren, Jamie Thingelstad
+ * @author Tom Hutchison
  * @license 2-clause BSD
  */
 
 if ( ! defined('MEDIAWIKI'))
 {
-	die("Wiki Wonders What You're Doing");
+	die("Not Directly Called So What Are You Doing");
 }
 
 
@@ -35,12 +36,12 @@ $wgExtensionMessagesFiles['SkinPivot'] = __DIR__.'/Pivot.i18n.php';
 
 $wgResourceModules['skins.pivot'] = array(
 	'styles'         => array(
-    	'pivot/assets/stylesheets/normalize.css',
-        'pivot/assets/stylesheets/font-awesome.css',
-    	'pivot/assets/stylesheets/foundation.css',
-    	'pivot/assets/stylesheets/pivot.css',
-        'pivot/assets/stylesheets/pivot-print.css',
-    	'pivot/assets/stylesheets/jquery.autocomplete.css'
+		'pivot/assets/stylesheets/normalize.css',
+		'pivot/assets/stylesheets/font-awesome.css',
+		'pivot/assets/stylesheets/foundation.css',
+		'pivot/assets/stylesheets/pivot.css',
+		'pivot/assets/stylesheets/pivot-print.css',
+		'pivot/assets/stylesheets/jquery.autocomplete.css'
     ),
     'scripts'        => array(
         'pivot/assets/scripts/vendor/jquery.cookie.js',
