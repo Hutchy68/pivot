@@ -29,7 +29,7 @@ class Skinpivot extends SkinTemplate {
 			'useAddThisFollow' => false
 		);
 		foreach ($wgPivotFeaturesDefaults as $fgOption => $fgOptionValue) {
-			if ( !isset($wgPivotFeatures[$fgOption]) ) {
+			if ( ! isset($wgPivotFeatures[$fgOption])) {
 				$wgPivotFeatures[$fgOption] = $fgOptionValue;
 			}
 		}
@@ -38,8 +38,9 @@ class Skinpivot extends SkinTemplate {
 				$out->addHeadItem('ie-meta', '<meta http-equiv="X-UA-Compatible" content="IE=edge" />');
 				break;
 			case 2:
-				if (isset($_SERVER['HTTP_USER_AGENT']) && (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false))
-					header('X-UA-Compatible: IE=edge');
+				if (isset($_SERVER['HTTP_USER_AGENT']) && (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false)) {
+									header('X-UA-Compatible: IE=edge');
+				}
 				break;
 		}
 		$out->addModuleStyles('skins.pivot');
@@ -65,7 +66,7 @@ class pivotTemplate extends BaseTemplate {
 		$this->html('headelement');
 		switch ($wgPivotFeatures['usePivotTabs']) {
 			case true:
-			    ob_start();
+				ob_start();
 				$this->html('bodytext'); 
 				$out = ob_get_contents();
 				ob_end_clean();
@@ -92,7 +93,10 @@ class pivotTemplate extends BaseTemplate {
 <!-- START PIVOTTEMPLATE -->
 		<div class="off-canvas-wrap docs-wrap" data-offcanvas="">
 			<div class="inner-wrap">
-				<?php if ($wgPivotFeatures['fixedNavBar'] != false) echo "<div class='fixed'>"; ?>
+				<?php if ($wgPivotFeatures['fixedNavBar'] != false) {
+	echo "<div class='fixed'>";
+}
+?>
 				<nav class="tab-bar">
 					<section id="left-nav-aside" class="left-small show-for-small">
 						<a class="left-off-canvas-toggle"><span id="menu-user"><i class="fa fa-navicon fa-lg"></i></span></a>
@@ -109,10 +113,16 @@ class pivotTemplate extends BaseTemplate {
 					</section>
 					
 					<section id="right-nav-aside" class="right-small">
-					<a class="right-off-canvas-toggle"><span id="menu-user"><i class="fa <?php if ($wgUser->isLoggedIn()): ?>fa-user<?php else: ?>fa-navicon<?php endif; ?> fa-lg"></i></span></a>
+					<a class="right-off-canvas-toggle"><span id="menu-user"><i class="fa <?php if ($wgUser->isLoggedIn()): ?>fa-user<?php else {
+	: ?>fa-navicon<?php endif;
+}
+?> fa-lg"></i></span></a>
 					</section>
 				</nav>
-				<?php if ($wgPivotFeatures['fixedNavBar'] != false) echo "</div>"; ?>
+				<?php if ($wgPivotFeatures['fixedNavBar'] != false) {
+	echo "</div>";
+}
+?>
 				    <aside class="left-off-canvas-menu">
       					<ul class="off-canvas-list">
 						
@@ -137,11 +147,11 @@ class pivotTemplate extends BaseTemplate {
 						<?php foreach ($this->getPersonalTools() as $key => $item) { echo $this->makeListItem($key, $item); } ?>
 							<?php else: ?>
 								<?php if (isset($this->data['personal_urls']['anonlogin'])): ?>
-									<li><a href="<?php echo $this->data['personal_urls']['anonlogin']['href']; ?>"><?php echo wfMessage( 'login' )->text() ?></a></li>
+									<li><a href="<?php echo $this->data['personal_urls']['anonlogin']['href']; ?>"><?php echo wfMessage('login')->text() ?></a></li>
 								<?php elseif (isset($this->data['personal_urls']['login'])): ?>
-									<li><a href="<?php echo htmlspecialchars($this->data['personal_urls']['login']['href']); ?>"><?php echo wfMessage( 'login' )->text() ?></a></li>
+									<li><a href="<?php echo htmlspecialchars($this->data['personal_urls']['login']['href']); ?>"><?php echo wfMessage('login')->text() ?></a></li>
 										<?php else: ?>
-											<li><?php echo Linker::link(Title::newFromText('Special:UserLogin'), wfMessage( 'login' )->text()); ?></li>
+											<li><?php echo Linker::link(Title::newFromText('Special:UserLogin'), wfMessage('login')->text()); ?></li>
 								<?php endif; ?>
 							<?php endif; ?>
 					  </ul>
@@ -180,19 +190,19 @@ class pivotTemplate extends BaseTemplate {
 									<div class="row">
 										<div class="large-12 columns">
 												<!--[if lt IE 9]>
-												<div id="siteNotice" class="sitenotice panel radius"><?php echo $this->text('sitename') . ' '. wfMessage( 'pivot-browsermsg' )->text(); ?></div>
+												<div id="siteNotice" class="sitenotice panel radius"><?php echo $this->text('sitename').' '.wfMessage('pivot-browsermsg')->text(); ?></div>
 												<![endif]-->
 
-												<?php if ( $this->data['sitenotice'] ) { ?><div id="siteNotice" class="sitenotice panel radius"><?php $this->html( 'sitenotice' ); ?></div><?php } ?>
-												<?php if ( $this->data['newtalk'] ) { ?><div id="usermessage" class="newtalk panel radius"><?php $this->html( 'newtalk' ); ?></div><?php } ?>
+												<?php if ($this->data['sitenotice']) { ?><div id="siteNotice" class="sitenotice panel radius"><?php $this->html('sitenotice'); ?></div><?php } ?>
+												<?php if ($this->data['newtalk']) { ?><div id="usermessage" class="newtalk panel radius"><?php $this->html('newtalk'); ?></div><?php } ?>
 										</div>
 									</div>
 								
 									<?php if ($wgUser->isLoggedIn() || $wgPivotFeatures['showActionsForAnon']): ?>
-										<a href="#" data-options="align:left" data-dropdown="drop1" class="button secondary small radius pull-right" id="drop"><i class="fa fa-navicon fa-lg"><span id="page-actions" class="show-for-medium-up">&nbsp;<?php echo wfMessage( 'actions' )->text() ?></span></i></a>
+										<a href="#" data-options="align:left" data-dropdown="drop1" class="button secondary small radius pull-right" id="drop"><i class="fa fa-navicon fa-lg"><span id="page-actions" class="show-for-medium-up">&nbsp;<?php echo wfMessage('actions')->text() ?></span></i></a>
 										<ul id="drop1" class="tiny content f-dropdown" data-dropdown-content>
-											<?php foreach($this->data['content_actions'] as $key => $item) { echo preg_replace(array('/\sprimary="1"/', '/\scontext="[a-z]+"/', '/\srel="archives"/'),'',$this->makeListItem($key, $item)); } ?>
-											<?php wfRunHooks(SkinTemplateToolboxEnd, array(&$this, true));  ?>
+											<?php foreach ($this->data['content_actions'] as $key => $item) { echo preg_replace(array('/\sprimary="1"/', '/\scontext="[a-z]+"/', '/\srel="archives"/'), '', $this->makeListItem($key, $item)); } ?>
+											<?php wfRunHooks(SkinTemplateToolboxEnd, array(&$this, true)); ?>
 										</ul>
 										<?php if ($wgUser->isLoggedIn()): ?>
 											<div id="echo-notifications"></div>
@@ -200,7 +210,7 @@ class pivotTemplate extends BaseTemplate {
 									<?php endif;
 									$namespace = str_replace('_', ' ', $this->getSkin()->getTitle()->getNsText());
 									$displaytitle = $this->data['title'];
-									if (!empty($namespace)) {
+									if ( ! empty($namespace)) {
 										$pagetitle = $this->getSkin()->getTitle();
 										$newtitle = str_replace($namespace.':', '', $pagetitle);
 										$displaytitle = str_replace($pagetitle, $newtitle, $displaytitle);
@@ -211,7 +221,7 @@ class pivotTemplate extends BaseTemplate {
 											<div class="addthis_sharing_toolbox show-for-large-up"></div>
 											<!-- Go to www.addthis.com/dashboard to customize your tools -->
 											<?php } ?>
-									<?php if ( $this->data['isarticle'] ) { ?><h3 id="tagline"><?php $this->msg( 'tagline' ) ?></h3><?php } ?>
+									<?php if ($this->data['isarticle']) { ?><h3 id="tagline"><?php $this->msg('tagline') ?></h3><?php } ?>
 									<h5 id="sitesub" class="subtitle"><?php $this->html('subtitle') ?></h5>
 									<div id="contentSub" class="clear_both"></div>
 									<div id="bodyContent" class="mw-bodytext">
