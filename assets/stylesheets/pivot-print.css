@@ -1,3 +1,24 @@
 @media print {
-  nav, footer { display:none; }
+	/* stop double border at bottom with print */
+	footer.row {
+		border: none;
+	}
+	/*make namespace labels stand out */
+	h4.namespace.label {
+    padding: 0.25em;
+    font-size: 1.4em !important;
+    font-weight: normal;
+    background-color: #2284a1 !important;
+	color: #fff !important;
+	}
+	/* do not print borders of page */
+	#p-cactions {		
+    border-right:none;		
+    border-left:none;		
+	}
+	/* if addThis share is used, hide mobile content from js */
+	#at4m-dock {
+	display: none;
+	}
+	
 }

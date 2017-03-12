@@ -60,7 +60,7 @@ if ( jQuery( '#ca-addsection' ).length ) {
   
   jQuery('li#n-recentchanges a').prepend('<div id="drop-icon"><i class="fa fa-tasks fa-fw"></i></div>')
   jQuery('li#n-help a').prepend('<div id="drop-icon"><i class="fa fa-question fa-fw"></i></div>')
-
+  jQuery('li#n-randompage a').prepend('<div id="drop-icon"><i class="fa fa-random fa-fw"></i></div>')
 
 
   // Turn categories into labels
