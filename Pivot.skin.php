@@ -8,7 +8,7 @@
  */
  
 
-class Skinpivot extends SkinTemplate {
+class SkinPivot extends SkinTemplate {
 	public $skinname = 'pivot', $stylename = 'pivot', $template = 'pivotTemplate', $useHeadElement = true;
 
 	public function setupSkinUserCss(OutputPage $out) {
@@ -17,6 +17,7 @@ class Skinpivot extends SkinTemplate {
 		$wgPivotFeaturesDefaults = array(
 			'showActionsForAnon' => true,
 			'fixedNavBar' => false,
+			'usePivotTabs' => false,
 			'showHelpUnderTools' => true,
 			'showRecentChangesUnderTools' => true,
 			'wikiName' => &$GLOBALS['wgSitename'],
@@ -42,7 +43,7 @@ class Skinpivot extends SkinTemplate {
 					header('X-UA-Compatible: IE=edge');
 				break;
 		}
-		$out->addModuleStyles('skins.pivot');
+		$out->addModuleStyles('skins.pivot.styles');
 	}
 
 	public function initPage(OutputPage $out) {
@@ -51,7 +52,7 @@ class Skinpivot extends SkinTemplate {
 
 		$viewport_meta = 'width=device-width, user-scalable=yes, initial-scale=1.0';
 		$out->addMeta('viewport', $viewport_meta);
-		$out->addModuleScripts('skins.pivot');
+		$out->addModuleScripts('skins.pivot.js');
 	}
 
 }
@@ -61,12 +62,12 @@ class pivotTemplate extends BaseTemplate {
 	public function execute() {
 		global $wgUser;
 		global $wgPivotFeatures;
-		wfSuppressWarnings();
+		//wfSuppressWarnings();
 		$this->html('headelement');
 		switch ($wgPivotFeatures['usePivotTabs']) {
 			case true:
 			    ob_start();
-				$this->html('bodytext'); 
+				$this->html('bodytext');
 				$out = ob_get_contents();
 				ob_end_clean();
 				$markers = array("&lt;a", "&lt;/a", "&gt;");
@@ -126,7 +127,7 @@ class pivotTemplate extends BaseTemplate {
 									</form>
 								</li>
 								
-							<?php include(__DIR__.'/view/sidebar.php'); ?>
+							<?php $this->renderSidebar() ?>
 						</ul>
 					</aside>
 					
@@ -171,7 +172,7 @@ class pivotTemplate extends BaseTemplate {
 												</form>
 											</li>
 								
-											<?php include(__DIR__.'/view/sidebar.php'); ?>
+											<?php $this->renderSidebar() ?>
 										</ul>
 								</div>
 								
@@ -219,13 +220,12 @@ class pivotTemplate extends BaseTemplate {
 									switch ($wgPivotFeatures['usePivotTabs']) {
 										case true:
 											echo $body;
-											ob_flush();
 											break;
 										default:
-											$this->html('bodytext'); 
+										$this->html('bodytext');
 											break;
-									}
-									 ?>
+											}
+									?>
 									<div class="clear_both"></div>
 									</div>
 									<div id="categories" class="row">
@@ -280,7 +280,7 @@ class pivotTemplate extends BaseTemplate {
 		
 		<?php $this->printTrail(); ?>
 
-			<?php if ($wgPivotFeatures['addThisFollowPUBID'] != '') { ?>
+			<?php if ($wgPivotFeatures['addThisPUBID'] != '') { ?>
 				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $wgPivotFeatures['addThisPUBID']; ?>" async="async">></script>
 			<?php } ?>	
 		</body>
@@ -288,6 +288,21 @@ class pivotTemplate extends BaseTemplate {
 
 <?php
 		wfRestoreWarnings();
+		
 	}
+	
+	function renderSidebar() { 
+		$sidebar = $this->getSidebar();
+		$toolbox = $this->getToolbox();
+		foreach ($sidebar as $boxName => $box) { if ( ($box['header'] != wfMessage( 'toolbox' )->text()) ) { 
+			echo '<li id='.Sanitizer::escapeId( $box['id'] ); Linker::tooltip( $box['id'] ).'>';
+			echo '<li><label>'.htmlspecialchars( $box['header'] ).'</label></li>';
+					if ( is_array( $box['content'] ) ) {
+							foreach ($box['content'] as $key => $item) { echo $this->makeListItem($key, $item); }
+								} }
+									}
+			echo '<li><label>Toolbox</label></li>';
+					foreach ($toolbox as $key => $item) { echo $this->makeListItem($key, $item); }
+		}	
 }
 ?>
