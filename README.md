@@ -1,8 +1,3 @@
-# RC-1!
-
-This skin is based on a fork of and complete rework of the layout of the Foreground skin. Added classes available in Foundation 5, 100% width like Vector, but is totally mobile responsive.
-
-
 # MediaWiki Pivot Skin
 
 [![Build Status](https://travis-ci.org/Hutchy68/pivot.svg?branch=master)](https://travis-ci.org/Hutchy68/pivot)
@@ -28,7 +23,7 @@ After that, you can issue `git pull` to update the code at anytime.
 
 Once the skin is in place add the following line to your `LocalSettings.php` file.
 
-    require_once "$IP/skins/pivot/pivot.php";
+    wfLoadSkin( 'pivot' );
 
 This will activate Pivot in your installation. At this point you can select it as a user skin in your user preferences.
 
@@ -51,7 +46,7 @@ Use following features in `LocalSettings.php` to change the behavior.
 - `'useAddThisShare' => false` default, do not use AddThis share, `true` will insert the share toolbox div directly under page title, but before the tagline.
 - `'useAddThisFollow' => false` default, do not use AddThis follow, `true` will insert the follow toolbox div in the `right-footer` area before icon or text output.
 
-These are the default values:
+These are the default values and the example of the array to change the defaults. Add the following after `wfLoadSkin( 'pivot' );` in `LocalSettings.php` to change the feature defaults:
 
 	$wgPivotFeatures = array(
 		'showActionsForAnon' => true,

@@ -160,7 +160,7 @@ class pivotTemplate extends BaseTemplate {
 										<ul class="side-nav">
 											<li class="name logo">
 											<a href="<?php echo $this->data['nav_urls']['mainpage']['href']; ?>">
-												<img alt="<?php echo $this->text('sitename'); ?>" src="<?php echo $this->text('logopath') ?>" style="max-width: 100%;height:auto;display: inline-block; vertical-align:middle;text-align:center;"></a>		
+												<img alt="<?php echo $this->text('sitename'); ?>" src="<?php echo $this->text('logopath') ?>" style="max-width: 100%;height: auto;display: inline-block; vertical-align: middle;"></a>		
 											</li>
 											<li class="has-form">
 												<form action="/w/index.php" id="searchform" class="mw-search">
