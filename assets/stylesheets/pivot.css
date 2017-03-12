@@ -283,7 +283,6 @@ footer.row ul.views.columns li {
 
 footer.row {
     border-top: 1px solid #c3c3e5;
-    padding-top: 1em;
     padding-bottom: 2em;
     color: #333;
     max-width: 100%;
@@ -887,8 +886,6 @@ margin: 0;
     padding-top: 1.5em;
     padding-bottom: .5em;
     background-color: #fff;
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
 }
 
 ul.side-nav .button {
@@ -939,6 +936,7 @@ li.name.logo {
     margin-bottom: 1em;
     margin-right: auto;
     margin-left: auto;
+	text-align: center;
 }
 @media only screen and (min-width: 642px) {
 	.tab-bar-section.middle { left: .8125rem; text-align: left; }
@@ -1009,7 +1007,7 @@ h5.subtitle {
 }
 h4.namespace.label {
    padding:0.25em;
-   font-size:1.1em !important;
+   font-size:1.25em !important;
    font-weight:normal;
    background-color: #2284a1;
 }

@@ -62,7 +62,7 @@ class pivotTemplate extends BaseTemplate {
 	public function execute() {
 		global $wgUser;
 		global $wgPivotFeatures;
-		//wfSuppressWarnings();
+		wfSuppressWarnings();
 		$this->html('headelement');
 		switch ($wgPivotFeatures['usePivotTabs']) {
 			case true:
@@ -94,7 +94,7 @@ class pivotTemplate extends BaseTemplate {
 		<div class="off-canvas-wrap docs-wrap" data-offcanvas="">
 			<div class="inner-wrap">
 				<?php if ($wgPivotFeatures['fixedNavBar'] != false) echo "<div class='fixed'>"; ?>
-				<nav class="tab-bar">
+				<nav class="tab-bar hide-for-print">
 					<section id="left-nav-aside" class="left-small show-for-small">
 						<a class="left-off-canvas-toggle"><span id="menu-user"><i class="fa fa-navicon fa-lg"></i></span></a>
 					</section>
@@ -156,7 +156,7 @@ class pivotTemplate extends BaseTemplate {
 
 							<div class="row">
 								
-								<div id="sidebar" class="large-2 medium-3 columns hide-for-small">
+								<div id="sidebar" class="large-2 medium-3 columns hide-for-small hide-for-print">
 										<ul class="side-nav">
 											<li class="name logo">
 											<a href="<?php echo $this->data['nav_urls']['mainpage']['href']; ?>">
@@ -190,10 +190,10 @@ class pivotTemplate extends BaseTemplate {
 									</div>
 								
 									<?php if ($wgUser->isLoggedIn() || $wgPivotFeatures['showActionsForAnon']): ?>
-										<a href="#" data-options="align:left" data-dropdown="drop1" class="button secondary small radius pull-right" id="drop"><i class="fa fa-navicon fa-lg"><span id="page-actions" class="show-for-medium-up">&nbsp;<?php echo wfMessage( 'actions' )->text() ?></span></i></a>
+										<a href="#" data-options="align:left" data-dropdown="drop1" class="button secondary small radius pull-right hide-for-print" id="drop"><i class="fa fa-navicon fa-lg"><span id="page-actions" class="show-for-medium-up">&nbsp;<?php echo wfMessage( 'actions' )->text() ?></span></i></a>
 										<ul id="drop1" class="tiny content f-dropdown" data-dropdown-content>
-											<?php foreach($this->data['content_actions'] as $key => $item) { echo preg_replace(array('/\sprimary="1"/', '/\scontext="[a-z]+"/', '/\srel="archives"/'),'',$this->makeListItem($key, $item)); } ?>
-											<?php wfRunHooks(SkinTemplateToolboxEnd, array(&$this, true));  ?>
+											<?php foreach($this->data['content_actions'] as $key => $tab) { echo preg_replace(array('/\sprimary="1"/', '/\scontext="[a-z]+"/', '/\srel="archives"/'),'',$this->makeListItem($key, $tab)); } ?>
+											<?php wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ));  ?>
 										</ul>
 										<?php if ($wgUser->isLoggedIn()): ?>
 											<div id="echo-notifications"></div>
@@ -209,7 +209,7 @@ class pivotTemplate extends BaseTemplate {
 									<h2 class="title"><?php print $displaytitle; ?></h2>
 											<?php if ($wgPivotFeatures['useAddThisShare'] != false) { ?>
 											<!-- Go to www.addthis.com/dashboard to customize your tools -->
-											<div class="addthis_sharing_toolbox show-for-large-up"></div>
+											<div class="addthis_sharing_toolbox show-for-large-up hide-for-print"></div>
 											<!-- Go to www.addthis.com/dashboard to customize your tools -->
 											<?php } ?>
 									<?php if ( $this->data['isarticle'] ) { ?><h3 id="tagline"><?php $this->msg( 'tagline' ) ?></h3><?php } ?>
@@ -245,9 +245,9 @@ class pivotTemplate extends BaseTemplate {
 												<?php } ?>									
 											</ul>
 											</div>	
-											<div id="footer-right-icons" class="small-12 medium-4 large-3 columns">
+											<div id="footer-right-icons" class="small-12 medium-4 large-3 columns hide-for-print">
 											<ul id="footer-right">
-												<li class="social-follow">
+												<li class="social-follow hide-for-print">
 													<?php if ($wgPivotFeatures['useAddThisFollow'] != false) { ?>
 														<div class="social-links">
 															<!-- Go to www.addthis.com/dashboard to customize your tools -->
@@ -302,7 +302,7 @@ class pivotTemplate extends BaseTemplate {
 								} }
 									}
 			echo '<li><label>Toolbox</label></li>';
-					foreach ($toolbox as $key => $item) { echo $this->makeListItem($key, $item); }
+					foreach ($toolbox as $key => $tbitem) { echo $this->makeListItem($key, $tbitem); }
 		}	
 }
 ?>

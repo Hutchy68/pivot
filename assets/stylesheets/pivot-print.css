@@ -1,3 +1,13 @@
 @media print {
   nav, footer { display:none; }
+}4.namespace.label {
+    padding: 0.25em;
+    font-size: 1.4em !important;
+    font-weight: normal;
+    background-color: #2284a1 !important;
+	color: #fff !important;
+	}
+	#at4m-dock {
+	display: none;
+	}
 }
