@@ -6,6 +6,8 @@ h4,h5,h6 {color: 2e2e2e;}
 
 #toc ul, .toc ul { font-size: 16px; }
 
+#toc { margin: 1em 0; }
+
 @media only screen and (min-width: 40.0625em) {
 body { line-height: 1.6em; font-size: 14px; }
 p, ul, ol, dl { font-size: 14px; }
@@ -14,6 +16,12 @@ p, ul, ol, dl { font-size: 14px; }
 
 p, table { border: none; margin-bottom: 1em; max-width: 100%; }
 
+/* make sure user tweaks to pre don't cause problems with orbit captions */
+.orbit-caption pre {
+    padding: 0;
+    background: inherit;
+    border: none;
+}
 
 a.label:hover,
 a.label:focus {
@@ -788,18 +796,28 @@ body.mw-special-Userlogin h2.title {
   margin: .5em 1em;
 }
 
+#pt-notifications-alert .mw-echo-notifications-badge,
+#pt-notifications-message .mw-echo-notifications-badge {
+  background-size: 1.6em !important;
+  display: inline !important;
+  font-size: 1.2em;
+  filter: invert(25%);
+}
+
+#echo-notifications li {
+    list-style: none;
+}
+
+#echo-notifications-messages {
+    float: right;
+}
+#echo-notifications-alerts {
+    float: right;
+}
+
 #echo-notifications #pt-notifications {
   position: relative;
   list-style: none;
-}
-
-#echo-notifications #pt-notifications .mw-echo-notifications-badge {
-  width: 30px;
-  height: 35px;
-  text-align: center;
-  border-radius: 6px;
-  margin: 0;
-  padding:6px;
 }
 
 #echo-notifications #pt-notifications a.mw-echo-short-link .mw-badge {
@@ -883,10 +901,14 @@ margin: 0;
 	max-width: 100%;
 }
 
+.tab-bar {
+    background: #517398;
+}
+
 #p-cactions {
     padding-top: 1.5em;
     padding-bottom: .5em;
-    background-color: #fff;
+    background-color: #f6f6f6;
 	border-left: 1px solid #ccc;		
     border-right: 1px solid #ccc;
 }
@@ -931,9 +953,12 @@ ul.side-nav label {
     font-weight: bold;
     border: none;
     display: block;
+	background: #517398;
+    color: #fff;
+    padding: .25em .5em;
 }
 body {
-	background-color: #eee;
+	background-color: #DCEAEA;
 }
 li.name.logo {
     margin-bottom: 1em;
@@ -944,9 +969,7 @@ li.name.logo {
 @media only screen and (min-width: 642px) {
 	.tab-bar-section.middle { left: .8125rem; text-align: left; }
 }
-.tab-bar {
-	background: #443266;
-}
+
 
 /* TOC */
 #toc #toctitle, .toc #toctitle, #toc .toctitle, .toc .toctitle {

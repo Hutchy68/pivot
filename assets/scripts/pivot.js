@@ -11,7 +11,9 @@ jQuery(document).ready(function() {
   
   // The Echo extension puts an item in personal tools that Foreground really should have in the top menu
   // to make this easier, we move it here and loaded earlier to speed up transform
-  jQuery("#pt-notifications").prependTo("#echo-notifications");
+  jQuery("#pt-notifications").prependTo("#echo-notifications-alerts");
+  jQuery("#pt-notifications-message").prependTo("#echo-notifications-messages");
+  jQuery("#pt-notifications-alert").prependTo("#echo-notifications-alerts");
   
   // Append font-awesome icons
   jQuery('[id^=ca-nstab] a').prepend('<div id="drop-icon"><i class="fa fa-file fa-fw"></i></div>')
@@ -56,6 +58,7 @@ if ( jQuery( '#ca-addsection' ).length ) {
   jQuery('li#t-print a').prepend('<div id="drop-icon"><i class="fa fa-print fa-fw"></i></div>')
   jQuery('li#t-permalink a').prepend('<div id="drop-icon"><i class="fa fa-dot-circle-o fa-fw"></i></div>')
   jQuery('li#t-info a').prepend('<div id="drop-icon"><i class="fa fa-info fa-fw"></i></div>')
+  jQuery('li#t-cite a').prepend('<div id="drop-icon"><i class="fa fa-quote-left fa-fw"></i></div>')
   jQuery('li#feedlinks a').prepend('<div id="drop-icon"><i class="fa fa-rss fa-fw"></i></div>')
   
   jQuery('li#n-recentchanges a').prepend('<div id="drop-icon"><i class="fa fa-tasks fa-fw"></i></div>')
