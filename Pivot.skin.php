@@ -196,7 +196,10 @@ class pivotTemplate extends BaseTemplate {
 											<?php wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ));  ?>
 										</ul>
 										<?php if ($wgUser->isLoggedIn()): ?>
-											<div id="echo-notifications"></div>
+											<div id="echo-notifications">
+											<div id="echo-notifications-alerts"></div>
+											<div id="echo-notifications-messages"></div>
+											</div>
 										<?php endif; ?>
 									<?php endif;
 									$namespace = str_replace('_', ' ', $this->getSkin()->getTitle()->getNsText());
