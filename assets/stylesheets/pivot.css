@@ -758,42 +758,23 @@ div.mw-htmlform-field-HTMLCheckField div.mw-label { height:0; }
 #p-toolboxend { display:none;}
 
 
-/* Jamie's Header Hider */
-body.page-Main_Page h1.firstHeading,
-body.page-Main_Page #siteSub,
-body.page-Extension_Main_Page h1.firstHeading,
-body.page-Extension_Main_Page #siteSub,
-body.page-Skin_Main_Page h1.firstHeading,
-body.page-Skin_Main_Page #siteSub,
-body.page-Farm_Main_Pageh1.firstHeading,
-body.page-Farm_Main_Page #siteSub,
-body.mw-special-Userlogin h2.title {
-  display:none;
-}
+/* Sitenotice */
 
-/* Don't like the black top bar? Copy this into your Common.css and change the colors
-.top-bar,
-.top-bar-section ul,
-.top-bar-section ul li.active > a,
-.top-bar-section li a:not(.button),
-.top-bar-section .has-form,
-.top-bar.expanded .title-area  {
-   background: black;
-   color: white;
+#siteNotice {
+    display: block;
+    margin-top: 1.5em;
+    margin-bottom: .25em;
 }
-
-.top-bar-section > ul > .divider,
-.top-bar-section > ul > [role="separator"] {
-  border-color: black;
-}
-*/
 
 /* Add improved styling for the Echo extension */
 
 #echo-notifications {
   float: right;
   display: inline-block;
-  margin: .5em 1em;
+  margin: -.5em 0;
+  position: relative;
+  z-index: 10000;
+  height: 23px;
 }
 
 #pt-notifications-alert .mw-echo-notifications-badge,
@@ -802,91 +783,37 @@ body.mw-special-Userlogin h2.title {
   display: inline !important;
   font-size: 1.2em;
   filter: invert(25%);
+  color: transparent;
 }
 
 #echo-notifications li {
-    list-style: none;
-}
-
-#echo-notifications-messages {
-    float: right;
-}
-#echo-notifications-alerts {
-    float: right;
-}
-
-#echo-notifications #pt-notifications {
-  position: relative;
   list-style: none;
 }
 
-#echo-notifications #pt-notifications a.mw-echo-short-link .mw-badge {
-  margin:0;
-  padding:6px;
+#echo-notifications-messages {
+  float: right;
+}
+#echo-notifications-alerts {
+  float: right;
 }
 
-#echo-notifications #pt-notifications .mw-badge-content {
-  font-size: 1.3em;
-  line-height: 1.1;
-}
-
-#echo-notifications .mw-echo-overlay-pokey {
-  top: 30px;
-  left: -1px;
-}
-
-#echo-notifications .mw-echo-overlay {
-  left: -185px;
-  width: 300px;
-  top: 40px;
-}
-
-#echo-notifications .mw-echo-overlay-title {
-  padding: 10px;
-}
-
-#echo-notifications .mw-echo-icon {
-  margin: 5px;
-}
-
-#echo-notifications a.mw-echo-short-link .mw-badge {
-  margin-left: 0;
-}
-
-#echo-notifications #mw-echo-overlay-pref-link {
-  background-image:none;
-  font-size: 14px;
-  padding-left:0;
-  border-left:none;
-}
-
-#echo-notifications #mw-echo-overlay-link {
-  padding: 10px 0px 10px 15px;
-  background-position: left 50%;
-  border-right: none;
-  margin-right:0;
-}
-
-#echo-notifications .mw-echo-dismiss {
-  padding: 10px;
-  font-size: .8em;
-  min-width: 100%;
-}
-
-#echo-notifications .mw-echo-notification {
-  overflow: visible;
-}
-
-#echo-notifications .mw-echo-title {
-  max-width: 99%;
+#pt-notifications-alert .mw-echo-unseen-notifications,
+#pt-notifications-message .mw-echo-unseen-notifications {
+  color: #0645ad !important;
 }
 
 /* Make Echo extension more mobile friendly on small widths */
 
-@media only screen and (min-width: 550px) {
-#echo-notifications .mw-echo-overlay { left: -420px; width: 450px; }
-#echo-notifications #mw-echo-overlay-pref-link { padding: 10px 0 10px 30px; }
-#echo-notifications #mw-echo-overlay-link { border-right: 1px solid #DDDDDD; margin-right: 2em; }
+@media only screen and (max-width: 450px) {
+.oo-ui-popupWidget-popup {
+    width: auto !important;
+    position: relative !important;
+    margin-left: -260px !important;
+    font-size: 75% !important;
+}
+.oo-ui-clippableElement-clippable.oo-ui-popupWidget-body {
+    width: 100% !important;
+}
 }
 
 /* Aside CSS */

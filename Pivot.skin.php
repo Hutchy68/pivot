@@ -180,6 +180,12 @@ class pivotTemplate extends BaseTemplate {
 								
 									<div class="row">
 										<div class="large-12 columns">
+												<?php if ($wgUser->isLoggedIn()): ?>
+												<div id="echo-notifications">
+												<div id="echo-notifications-alerts"></div>
+												<div id="echo-notifications-messages"></div>
+												</div>
+												<?php endif; ?>
 												<!--[if lt IE 9]>
 												<div id="siteNotice" class="sitenotice panel radius"><?php echo $this->text('sitename') . ' '. wfMessage( 'pivot-browsermsg' )->text(); ?></div>
 												<![endif]-->
@@ -195,12 +201,7 @@ class pivotTemplate extends BaseTemplate {
 											<?php foreach($this->data['content_actions'] as $key => $tab) { echo preg_replace(array('/\sprimary="1"/', '/\scontext="[a-z]+"/', '/\srel="archives"/'),'',$this->makeListItem($key, $tab)); } ?>
 											<?php wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ));  ?>
 										</ul>
-										<?php if ($wgUser->isLoggedIn()): ?>
-											<div id="echo-notifications">
-											<div id="echo-notifications-alerts"></div>
-											<div id="echo-notifications-messages"></div>
-											</div>
-										<?php endif; ?>
+
 									<?php endif;
 									$namespace = str_replace('_', ' ', $this->getSkin()->getTitle()->getNsText());
 									$displaytitle = $this->data['title'];
