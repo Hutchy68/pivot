@@ -1125,8 +1125,23 @@ ul[class*="block-grid"] {
     margin: 0;
 }
 
-/* WikiEditor Label Fix */
+/* WikiEditor related fixes */
+
+/* lable of toolbar */
 .wikiEditor-ui-toolbar .label {
     background: transparent;
     color: #000;
+}
+/* selection boxes in toolbar adhere to font-size */
+.wikiEditor-ui-toolbar .page-characters div span {
+    font-size: 1.25em;
+    height: 1.75em;
+}
+/* backound of controls adhere to #p-cactions */
+.wikiEditor-ui-controls {
+    background-color: #f6f6f6; 
+}
+/* background of buttions adhere to #p-cactions*/
+.wikiEditor-ui-buttons {
+    background-color: #f6f6f6;
 }
