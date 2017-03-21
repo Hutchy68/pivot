@@ -26,8 +26,8 @@ class SkinPivot extends SkinTemplate {
 			'IeEdgeCode' => 1,
 			'showFooterIcons' => false,
 			'addThisPUBID' => '',
-			'useAddThisShare' => false,
-			'useAddThisFollow' => false
+			'useAddThisShare' => '',
+			'useAddThisFollow' => ''
 		);
 		foreach ($wgPivotFeaturesDefaults as $fgOption => $fgOptionValue) {
 			if ( !isset($wgPivotFeatures[$fgOption]) ) {
@@ -211,9 +211,9 @@ class pivotTemplate extends BaseTemplate {
 										$displaytitle = str_replace($pagetitle, $newtitle, $displaytitle);
 									?><h4 class="namespace label"><?php print $namespace; ?></h4><?php } ?>
 									<h2 class="title"><?php print $displaytitle; ?></h2>
-											<?php if ($wgPivotFeatures['useAddThisShare'] != false) { ?>
+											<?php if ($wgPivotFeatures['useAddThisShare'] !== '') { ?>
 											<!-- Go to www.addthis.com/dashboard to customize your tools -->
-											<div class="addthis_sharing_toolbox show-for-large-up hide-for-print"></div>
+											<div class="<?php echo $wgPivotFeatures['useAddThisShare']; ?> hide-for-print"></div>
 											<!-- Go to www.addthis.com/dashboard to customize your tools -->
 											<?php } ?>
 									<?php if ( $this->data['isarticle'] ) { ?><h3 id="tagline"><?php $this->msg( 'tagline' ) ?></h3><?php } ?>
@@ -252,10 +252,10 @@ class pivotTemplate extends BaseTemplate {
 											<div id="footer-right-icons" class="small-12 medium-4 large-3 columns hide-for-print">
 											<ul id="footer-right">
 												<li class="social-follow hide-for-print">
-													<?php if ($wgPivotFeatures['useAddThisFollow'] != false) { ?>
+													<?php if ($wgPivotFeatures['useAddThisFollow'] !== '') { ?>
 														<div class="social-links">
 															<!-- Go to www.addthis.com/dashboard to customize your tools -->
-															<div class="addthis_horizontal_follow_toolbox show-for-large-up"></div>
+															<div class="<?php echo $wgPivotFeatures['useAddThisFollow']; ?> hide-for-print"></div>
 														</div>
 													<?php } ?>
 												</li>
@@ -284,7 +284,7 @@ class pivotTemplate extends BaseTemplate {
 		
 		<?php $this->printTrail(); ?>
 
-			<?php if ($wgPivotFeatures['addThisPUBID'] != '') { ?>
+			<?php if ($this->data['isarticle'] && $wgPivotFeatures['addThisPUBID'] !== '') { ?>
 				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $wgPivotFeatures['addThisPUBID']; ?>" async="async">></script>
 			<?php } ?>	
 		</body>

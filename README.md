@@ -36,27 +36,21 @@ To activate Pivot for all users and anonymous visitors, you need to set the `$wg
 Use following features in `LocalSettings.php` to change the behavior. 
 
 - `'showActionsForAnon' => true` displays page actions for non-logged-in visitors.
-- `'fixedNavBar' => false` will allow the NavBar to scroll with the content, `true` will lock the NavBar.
-- `'usePivotTabs' => false` set to true will enable Foundation 5 tab coding to pass thru HTML sanitizer.
 - `'showHelpUnderTools' => true` a Link to "Help" will be created under "Tools".
 - `'showRecentChangesUnderTool's => true` a Link to "recent changes" will be created under "Tools".
-- `'wikiName' => &$GLOBALS['wgSitename']` set a shorter wiki name which doesn't change the real name used when creating the wiki.
-- `'wikiNameDesktop' => &$GLOBALS['wgSitename']` set a longer wiki name for desktop view. Helpful when used in conjunction with `wikiName` or default `$wgSitename`.
-- `'navbarIcon' => false` no icon in mobile view, `true` to use the global set logopath image of the wiki.
 - `'IeEdgeCode' => 1` will produce a meta tag with "X-UA-Compatible" content="IE=edge", `2` will sent a header, `0` nothing will be done
+- `'fixedNavBar' => false` will allow the NavBar to scroll with the content, `true` will lock the NavBar.
+- `'navbarIcon' => false` no icon in mobile view, `true` to use the global set logopath image of the wiki.
 - `'showFooterIcons' => false` will show text in place of footer icons, `true` will output the icons as globally set.
-- `'addThisPUBID' => ''` empty string will not fire the AddThis script, `'ra-##-#######'` publisher ID will allow the run the AddThis script in async.
-- `'useAddThisShare' => false` default, do not use AddThis share, `true` will insert the share toolbox div directly under page title, but before the tagline.
-- `'useAddThisFollow' => false` default, do not use AddThis follow, `true` will insert the follow toolbox div in the `right-footer` area before icon or text output.
+- `'addThisPUBID' => ''` empty string will not fire the AddThis script, `'ra-##-#######'` publisher ID will allow the run the AddThis script in async on content pages only.
+- `'useAddThisShare' => ''` default empty string, do not use AddThis share, `your_addthis_specific_div_class_string` will insert the share toolbox div directly under page title, but before the tagline with your custom div class.
+- `'useAddThisFollow' => ''` default empty string, do not use AddThis follow, `your_addthis_specific_div_class_string` will insert the follow toolbox div in the `right-footer` area before icon or text output with your custom div class.
 
-For a more detailed explanation of each feature, see the https://pivot.wikiproject.net/wiki/Pivot_features page.
+These are the default values and the example of the array to change the defaults. Add the following after `wfLoadSkin( 'pivot' );` in `LocalSettings.php` to change the feature defaults:
 
-These are the default values and the example of the array to change the defaults. Add the following after `wfLoadSkin( 'pivot' );` in `LocalSettings.php` then change the feature defaults:
-
-	$wgPivotFeaturesDefaults = array(
+	$wgPivotFeatures = array(
 		'showActionsForAnon' => true,
 		'fixedNavBar' => false,
-		'usePivotTabs' => false,
 		'showHelpUnderTools' => true,
 		'showRecentChangesUnderTools' => true,
 		'wikiName' => &$GLOBALS['wgSitename'],
@@ -65,9 +59,9 @@ These are the default values and the example of the array to change the defaults
 		'IeEdgeCode' => 1,
 		'showFooterIcons' => false,
 		'addThisPUBID' => '',
-		'useAddThisShare' => false,
-		'useAddThisFollow' => false
-		);
+		'useAddThisShare' => '',
+		'useAddThisFollow' => ''
+    );
 
 
 ### Notes on other skins

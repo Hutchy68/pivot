@@ -323,7 +323,8 @@ ul#footer-right li {
 li.social-follow {
     width: 100%;
 }
-.addthis_horizontal_follow_toolbox {
+footer .addthis_horizontal_follow_toolbox,
+footer .addthis_toolbox {
     float: right;
     margin-bottom: .5em;
 }
