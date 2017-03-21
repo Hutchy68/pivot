@@ -1134,7 +1134,6 @@ ul[class*="block-grid"] {
 }
 /* selection boxes in toolbar adhere to font-size */
 .wikiEditor-ui-toolbar .page-characters div span {
-    font-size: 1.25em;
     height: 1.75em;
 }
 /* backound of controls adhere to #p-cactions */
