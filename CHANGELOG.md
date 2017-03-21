@@ -1,3 +1,8 @@
+## Version 1.0.2
+
+* [bug fix] AddThis div container
+* [enhancement] Hide AddThis on non content pages by disabling <script> from running
+
 ## Version 1.0.1
 
 * [enhancement] License update on Special:Version
