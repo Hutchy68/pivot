@@ -13,12 +13,17 @@
 	}
 	/* do not print borders of page */
 	#p-cactions {		
-    border-right:none;		
-    border-left:none;		
+    border-right: none !important;		
+    border-left: none !important;		
 	}
-	/* if addThis share is used, hide mobile content from js */
-	#at4m-dock {
-	display: none;
+	/* if addThis share is used, make sure to hide mobile content from js */
+	#at4m-dock, .at4-show,
+	#atstbx	{
+	display: none !important;
+	}
+	/* hide Echo if being used */
+	#echo-notifications {
+	display: none !important;
 	}
 	
 }
