@@ -1143,6 +1143,7 @@ ul[class*="block-grid"] {
 /* background of buttions adhere to #p-cactions*/
 .wikiEditor-ui-buttons {
     background-color: #f6f6f6;
+}
 
 /* Visual Editor Fixes */
 .ve-activated #content {
