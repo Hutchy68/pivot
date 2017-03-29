@@ -1143,4 +1143,15 @@ ul[class*="block-grid"] {
 /* background of buttions adhere to #p-cactions*/
 .wikiEditor-ui-buttons {
     background-color: #f6f6f6;
+
+/* Visual Editor Fixes */
+.ve-activated #content {
+    margin-top: 4em;
+}
+.ve-ce-documentNode {
+    background:#fff;
+}
+.oo-ui-barToolGroup.oo-ui-widget-enabled > .oo-ui-toolGroup-tools > .oo-ui-tool > .oo-ui-tool-link,
+.oo-ui-barToolGroup > .oo-ui-toolGroup-tools > .oo-ui-tool.oo-ui-widget-disabled > .oo-ui-tool-link  {
+    display: inline !important;
 }
