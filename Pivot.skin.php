@@ -180,6 +180,9 @@ class pivotTemplate extends BaseTemplate {
 								
 									<div class="row">
 										<div class="large-12 columns">
+												<!-- Output page indicators -->
+												<?php echo $this->getIndicators(); ?>
+												<!-- If user is logged in output echo location -->
 												<?php if ($wgUser->isLoggedIn()): ?>
 												<div id="echo-notifications">
 												<div id="echo-notifications-alerts"></div>
