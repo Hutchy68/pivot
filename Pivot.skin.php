@@ -180,6 +180,9 @@ class pivotTemplate extends BaseTemplate {
 								
 									<div class="row">
 										<div class="large-12 columns">
+												<!-- Output page indicators -->
+												<?php echo $this->getIndicators(); ?>
+												<!-- If user is logged in output echo location -->
 												<?php if ($wgUser->isLoggedIn()): ?>
 												<div id="echo-notifications">
 												<div id="echo-notifications-alerts"></div>
@@ -210,6 +213,7 @@ class pivotTemplate extends BaseTemplate {
 										$newtitle = str_replace($namespace.':', '', $pagetitle);
 										$displaytitle = str_replace($pagetitle, $newtitle, $displaytitle);
 									?><h4 class="namespace label"><?php print $namespace; ?></h4><?php } ?>
+									<div id="content">
 									<h2 class="title"><?php print $displaytitle; ?></h2>
 											<?php if ($wgPivotFeatures['useAddThisShare'] !== '') { ?>
 											<!-- Go to www.addthis.com/dashboard to customize your tools -->
@@ -231,6 +235,7 @@ class pivotTemplate extends BaseTemplate {
 											}
 									?>
 									<div class="clear_both"></div>
+									</div>
 									</div>
 									<div id="categories" class="row">
 										<div class="small-12 columns">
