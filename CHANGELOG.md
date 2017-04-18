@@ -1,3 +1,9 @@
+## Version 1.0.3
+
+* Added support for Visual Editor
+* Added support for Page Indicators
+* Minor CSS changes for Echo integration and NO Print elements
+
 ## Version 1.0.2
 
 * [bug fix] AddThis div container
