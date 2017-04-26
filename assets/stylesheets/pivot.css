@@ -770,51 +770,59 @@ div.mw-htmlform-field-HTMLCheckField div.mw-label { height:0; }
 /* Add improved styling for the Echo extension */
 
 #echo-notifications {
-  float: right;
-  display: inline-block;
-  margin: -.5em 0;
-  position: relative;
-  z-index: 10000;
-  height: 23px;
+	float: right;
+	display: inline-block;
+	margin: -1em 1em .5em;
+	position: relative;
+	z-index: 500;
+	max-height: 30px;
 }
+#echo-notifications-notice,
+#echo-notifications-alerts,
+#echo-notifications-messages,
+#echo-notifications {
+	display: inline-block;
+} 
 
+#pt-notifications-notice .mw-echo-notifications-badge,
 #pt-notifications-alert .mw-echo-notifications-badge,
 #pt-notifications-message .mw-echo-notifications-badge {
-  background-size: 1.6em !important;
-  display: inline !important;
-  font-size: 1.2em;
-  filter: invert(25%);
-  color: transparent;
+	background-size: 1.4em !important;
+	font-size: 1.1em;
+	color: transparent;
+	filter: invert(15%);
+	height: auto !important;
+	display: block !important;
+}
+#echo-notifications li {
+	list-style: none;
+}
+#echo-notifications-messages {
+	float: right;
+}
+#echo-notifications-alerts {
+	float: right;
+}
+#pt-notifications-alert .mw-echo-unseen-notifications, #pt-notifications-message .mw-echo-unseen-notifications {
+	color: #0645ad !important;
 }
 
 #echo-notifications li {
-  list-style: none;
-}
-
-#echo-notifications-messages {
-  float: right;
-}
-#echo-notifications-alerts {
-  float: right;
-}
-
-#pt-notifications-alert .mw-echo-unseen-notifications,
-#pt-notifications-message .mw-echo-unseen-notifications {
-  color: #0645ad !important;
+    margin: 0 0 0 1em;
 }
 
 /* Make Echo extension more mobile friendly on small widths */
 
 @media only screen and (max-width: 450px) {
-.oo-ui-popupWidget-popup {
-    width: auto !important;
-    position: relative !important;
-    margin-left: -260px !important;
-    font-size: 75% !important;
-}
-.oo-ui-clippableElement-clippable.oo-ui-popupWidget-body {
-    width: 100% !important;
-}
+	.oo-ui-popupWidget-popup {
+		width: auto !important;
+		position: relative !important;
+		margin-left: -260px !important;
+		font-size: 75% !important;
+	}
+	.oo-ui-clippableElement-clippable.oo-ui-popupWidget-body {
+		width: 100% !important;
+	}
 }
 
 /* Aside CSS */
@@ -1158,12 +1166,15 @@ ul[class*="block-grid"] {
 }
 
 .mw-indicators {
-    float: right;
-    line-height: 1.6;
-    font-size: 0.875em;
-    position: relative;
-    margin: -.5em .5em 0;
-    max-height: 25px;
-    width: auto;
-    z-index: 1;
+	float: right;
+	line-height: 1.6;
+	font-size: 0.875em;
+	position: relative;
+	margin: -1em .5em .5em 1em;
+	max-height: 30px;
+	width: auto;
+	z-index: 1;
+}
+.mw-indicator {
+	display: inline-block;
 }
