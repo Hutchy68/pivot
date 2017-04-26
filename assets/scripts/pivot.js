@@ -11,8 +11,10 @@ jQuery(document).ready(function() {
   
   // The Echo extension puts an item in personal tools that Foreground really should have in the top menu
   // to make this easier, we move it here and loaded earlier to speed up transform
+  jQuery("#pt-notifications").prependTo("#echo-notifications-alerts");
   jQuery("#pt-notifications-message").prependTo("#echo-notifications-messages");
   jQuery("#pt-notifications-alert").prependTo("#echo-notifications-alerts");
+  jQuery("#pt-notifications-notice").prependTo("#echo-notifications-notice");
   
   // Append font-awesome icons
   jQuery('[id^=ca-nstab] a').prepend('<div id="drop-icon"><i class="fa fa-file fa-fw"></i></div>')

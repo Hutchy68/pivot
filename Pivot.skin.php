@@ -187,14 +187,15 @@ class pivotTemplate extends BaseTemplate {
 												<div id="echo-notifications">
 												<div id="echo-notifications-alerts"></div>
 												<div id="echo-notifications-messages"></div>
+												<div id="echo-notifications-notice"></div>
 												</div>
 												<?php endif; ?>
 												<!--[if lt IE 9]>
-												<div id="siteNotice" class="sitenotice panel radius"><?php echo $this->text('sitename') . ' '. wfMessage( 'pivot-browsermsg' )->text(); ?></div>
+												<div id="siteNotice" class="sitenotice"><?php echo $this->text('sitename') . ' '. wfMessage( 'pivot-browsermsg' )->text(); ?></div>
 												<![endif]-->
 
-												<?php if ( $this->data['sitenotice'] ) { ?><div id="siteNotice" class="sitenotice panel radius"><?php $this->html( 'sitenotice' ); ?></div><?php } ?>
-												<?php if ( $this->data['newtalk'] ) { ?><div id="usermessage" class="newtalk panel radius"><?php $this->html( 'newtalk' ); ?></div><?php } ?>
+												<?php if ( $this->data['sitenotice'] ) { ?><div id="siteNotice" class="sitenotice"><?php $this->html( 'sitenotice' ); ?></div><?php } ?>
+												<?php if ( $this->data['newtalk'] ) { ?><div id="usermessage" class="newtalk"><?php $this->html( 'newtalk' ); ?></div><?php } ?>
 										</div>
 									</div>
 								
