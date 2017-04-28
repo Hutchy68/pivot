@@ -1,8 +1,14 @@
+## Version 1.0.4
+
+* [bug fix] Don't style sitenotice and user message
+* [bug fix] Echo compatibility with Echo REL_1_28 release
+* [bug fix] Page indicator margins
+
 ## Version 1.0.3
 
-* Added support for Visual Editor
-* Added support for Page Indicators
-* Minor CSS changes for Echo integration and NO Print elements
+* [enhancement] Added support for Visual Editor
+* [enhancement] Added support for Page Indicators
+* [bug fix] Minor CSS changes for Echo integration and NO Print elements
 
 ## Version 1.0.2
 
