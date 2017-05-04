@@ -1,3 +1,8 @@
+## Version 1.0.5
+
+* [bug fix] Search link was not follow $wgScript path
+* [language] Search input box localisation
+
 ## Version 1.0.4
 
 * [bug fix] Don't style sitenotice and user message

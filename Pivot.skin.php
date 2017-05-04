@@ -118,10 +118,10 @@ class pivotTemplate extends BaseTemplate {
       					<ul class="off-canvas-list">
 						
 								<li class="has-form">
-									<form action="/w/index.php" id="searchform-offcanvas" class="mw-search">
+									<form action="<?php $this->text( 'wgScript' ); ?>" id="searchform" class="mw-search">
 										<div class="row collapse">
 											<div class="small-12 columns">
-												<input type="search" name="search" placeholder="Search" title="Search [alt-shift-f]" accesskey="f" id="searchInput-offcanvas" autocomplete="off">
+												<input type="search" name="search" placeholder="<?php echo wfMessage( 'search' )->text() ?>" title="Search [alt-shift-f]" accesskey="f" id="searchInput-offcanvas" autocomplete="off">
 											</div>
 										</div>
 									</form>
@@ -163,10 +163,10 @@ class pivotTemplate extends BaseTemplate {
 												<img alt="<?php echo $this->text('sitename'); ?>" src="<?php echo $this->text('logopath') ?>" style="max-width: 100%;height: auto;display: inline-block; vertical-align: middle;"></a>		
 											</li>
 											<li class="has-form">
-												<form action="/w/index.php" id="searchform" class="mw-search">
+												<form action="<?php $this->text( 'wgScript' ); ?>" id="searchform" class="mw-search">
 													<div class="row collapse">
 														<div class="small-12 columns">
-															<input type="search" name="search" placeholder="Search" title="Search [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off">
+															<input type="search" name="search" placeholder="<?php echo wfMessage( 'search' )->text() ?>" title="Search [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off">
 														</div>
 													</div>
 												</form>
