@@ -2,7 +2,7 @@
 
 All PR's welcome, even those without an Issue
 
-* [ ] Have tested this PR and it adds a feature or fixes and issue noted below.
+* [ ] Have tested this PR and it adds a feature or fixes an issue noted below.
 
 ### Additional Information Below
 
