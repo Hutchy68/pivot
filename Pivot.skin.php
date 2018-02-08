@@ -34,25 +34,10 @@ class SkinPivot extends SkinTemplate {
 				$wgPivotFeatures[$fgOption] = $fgOptionValue;
 			}
 		}
-		switch ($wgPivotFeatures['IeEdgeCode']) {
-			case 1:
-				$out->addHeadItem('ie-meta', '<meta http-equiv="X-UA-Compatible" content="IE=edge" />');
-				break;
-			case 2:
-				if (isset($_SERVER['HTTP_USER_AGENT']) && (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false))
-					header('X-UA-Compatible: IE=edge');
-				break;
-		}
 		$out->addModuleStyles('skins.pivot.styles');
-	}
-
-	public function initPage(OutputPage $out) {
-		global $wgLocalStylePath;
-		parent::initPage($out);
-
-		$viewport_meta = 'width=device-width, user-scalable=yes, initial-scale=1.0';
-		$out->addMeta('viewport', $viewport_meta);
 		$out->addModuleScripts('skins.pivot.js');
+		$out->addHeadItem('font', '<link rel="preload" href="/skins/pivot/assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" type="font/woff2" crossorigin="anonymous" />');
+
 	}
 
 }
