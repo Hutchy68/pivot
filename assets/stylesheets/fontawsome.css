@@ -1,6 +1,7 @@
 .side-nav li a:before,
 #drop1 li a:before,
-.right-off-canvas-menu li a:before {
+.right-off-canvas-menu li a:before,
+.left-off-canvas-menu li a:before {
 	font: normal normal normal 14px/1 FontAwesome;
 	font-size: inherit;
 	text-rendering: auto;

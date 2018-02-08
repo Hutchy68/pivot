@@ -35,8 +35,10 @@ class SkinPivot extends SkinTemplate {
 			}
 		}
 		$out->addModuleStyles('skins.pivot.styles');
+    	$viewport_meta = 'width=device-width, user-scalable=yes, initial-scale=1.0';
+		$out->addMeta('viewport', $viewport_meta);
 		$out->addModuleScripts('skins.pivot.js');
-		$out->addHeadItem('font', '<link rel="preload" href="/skins/pivot/assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" type="font/woff2" crossorigin="anonymous" />');
+		$out->addHeadItem('font', '<link rel="preload" href="/w/skins/pivot/assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" type="font/woff2" crossorigin="anonymous" />');
 
 	}
 
