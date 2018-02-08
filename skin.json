@@ -25,9 +25,10 @@
 			"position": "top",
 			"styles": [
 				"assets/stylesheets/normalize.css",
-				"assets/stylesheets/font-awesome.css",
+				"assets/stylesheets/font-awesome.min.css",
 				"assets/stylesheets/foundation.css",
 				"assets/stylesheets/pivot.css",
+				"assets/stylesheets/fontawsome.css",
 				"assets/stylesheets/pivot-print.css"
 			]
 		},
