@@ -24,7 +24,6 @@ class SkinPivot extends SkinTemplate {
 			'wikiName' => &$GLOBALS['wgSitename'],
 			'wikiNameDesktop' => &$GLOBALS['wgSitename'],
 			'navbarIcon' => false,
-			'IeEdgeCode' => 1,
 			'showFooterIcons' => false,
 			'addThisPUBID' => '',
 			'useAddThisShare' => '',
@@ -210,7 +209,7 @@ class pivotTemplate extends BaseTemplate {
 											<!-- Go to www.addthis.com/dashboard to customize your tools -->
 											<?php } ?>
 									<?php if ( $this->data['isarticle'] ) { ?><h3 id="tagline"><?php $this->msg( 'tagline' ) ?></h3><?php } ?>
-									<h5 id="sitesub" class="subtitle"><?php $this->html('subtitle') ?></h5>
+									<?php if ( $this->html('subtitle') ) { ?><h5 id="sitesub" class="subtitle"><?php $this->html('subtitle') ?></h5><?php } ?>
 									<div id="contentSub" class="clear_both"></div>
 									<div id="bodyContent" class="mw-bodytext">
 									<?php 
@@ -271,10 +270,11 @@ class pivotTemplate extends BaseTemplate {
 				</section>
 				
 			</div>
-			</div>
+		</div>
+		<div>
 			<a class="exit-off-canvas"></a>	
 		</div>
-
+		
 		
 		<?php $this->printTrail(); ?>
 
@@ -292,12 +292,12 @@ class pivotTemplate extends BaseTemplate {
 	function renderSidebar() { 
 		$sidebar = $this->getSidebar();
 		foreach ($sidebar as $boxName => $box) {
-			echo '<div class="sidebar" id="'.Sanitizer::escapeId( $box['id'] ).'"';echo Linker::tooltip( $box['id'] ).'>';
+			echo '<ul class="sidebar" id="'.Sanitizer::escapeId( $box['id'] ).'"';echo Linker::tooltip( $box['id'] ).'>';
 			echo '<li><label>'.htmlspecialchars( $box['header'] ).'</label></li>';
 					if ( is_array( $box['content'] ) ) {
 							foreach ($box['content'] as $key => $item) { echo $this->makeListItem($key, $item); }
 								} 
-									echo '</div>'; }
+									echo '</ul>'; }
 		}	
 }
 ?>
