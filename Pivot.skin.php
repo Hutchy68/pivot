@@ -235,7 +235,7 @@ class pivotTemplate extends BaseTemplate {
 									<footer class="row">
 
 										<div id="footer">
-											<div id="footer-left" class="small-12 medium-8 large-9 columns">
+											<div id="div-footer-left" class="small-12 medium-8 large-9 columns">
 											<ul id="footer-left">
 												<?php foreach ($this->getFooterLinks("flat") as $key) { ?>
 													<li id="footer-<?php echo $key ?>"><?php $this->html($key) ?></li>
@@ -279,7 +279,7 @@ class pivotTemplate extends BaseTemplate {
 		<?php $this->printTrail(); ?>
 
 			<?php if ($this->data['isarticle'] && $wgPivotFeatures['addThisPUBID'] !== '') { ?>
-				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $wgPivotFeatures['addThisPUBID']; ?>" async="async">></script>
+				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $wgPivotFeatures['addThisPUBID']; ?>" async="async"></script>
 			<?php } ?>	
 		</body>
 		</html>
@@ -292,12 +292,11 @@ class pivotTemplate extends BaseTemplate {
 	function renderSidebar() { 
 		$sidebar = $this->getSidebar();
 		foreach ($sidebar as $boxName => $box) {
-			echo '<ul class="sidebar" id="'.Sanitizer::escapeId( $box['id'] ).'"';echo Linker::tooltip( $box['id'] ).'>';
-			echo '<li><label>'.htmlspecialchars( $box['header'] ).'</label></li>';
+			echo '<li><label class="sidebar" id="'.Sanitizer::escapeId( $box['id'] ).'"';echo Linker::tooltip( $box['id'] ).'>'.htmlspecialchars( $box['header'] ).'</label></li>';
 					if ( is_array( $box['content'] ) ) {
 							foreach ($box['content'] as $key => $item) { echo $this->makeListItem($key, $item); }
 								} 
-									echo '</ul>'; }
+								}
 		}	
 }
 ?>
