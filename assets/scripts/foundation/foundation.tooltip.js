@@ -4,7 +4,7 @@
   Foundation.libs.tooltip = {
     name : 'tooltip',
 
-    version : '5.5.3',
+    version : '{{VERSION}}',
 
     settings : {
       additional_inheritable_classes : [],
@@ -194,7 +194,7 @@
         tip_template = window[settings.tip_template];
       }
 
-      var $tip = $(tip_template(this.selector($target), $('<div></div>').html($target.attr('title')).html())),
+      var $tip = $(tip_template(this.selector($target), $('<div></div>').html($target.attr('title')).text())),
           classes = this.inheritable_classes($target);
 
       $tip.addClass(classes).appendTo(settings.append_to);

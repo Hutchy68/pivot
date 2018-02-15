@@ -4,13 +4,13 @@
   Foundation.libs.slider = {
     name : 'slider',
 
-    version : '5.5.3',
+    version : '{{VERSION}}',
 
     settings : {
       start : 0,
       end : 100,
       step : 1,
-      precision : 2,
+      precision : 0,
       initial : null,
       display_selector : '',
       vertical : false,

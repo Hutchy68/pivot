@@ -24,6 +24,7 @@ class SkinPivot extends SkinTemplate {
 			'wikiName' => &$GLOBALS['wgSitename'],
 			'wikiNameDesktop' => &$GLOBALS['wgSitename'],
 			'navbarIcon' => false,
+			'preloadFontAwesome' => false,
 			'showFooterIcons' => false,
 			'addThisPUBID' => '',
 			'useAddThisShare' => '',
@@ -38,8 +39,9 @@ class SkinPivot extends SkinTemplate {
     	$viewport_meta = 'width=device-width, user-scalable=yes, initial-scale=1.0';
 		$out->addMeta('viewport', $viewport_meta);
 		$out->addModuleScripts('skins.pivot.js');
-		$out->addHeadItem('font', '<link rel="preload" href="'.$wgLocalStylePath.'/pivot/assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" type="font/woff2" crossorigin="anonymous" />');
-
+		if ( $wgPivotFeatures['preloadFontAwesome'] ) {
+			$out->addHeadItem('font', '<link rel="preload" href="'.$wgLocalStylePath.'/pivot/assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" type="font/woff2" crossorigin="anonymous" />');
+		}
 	}
 
 }
@@ -114,7 +116,7 @@ class pivotTemplate extends BaseTemplate {
 									</form>
 								</li>
 								
-							<?php $this->renderSidebar() ?>
+							<?php $location="-off-canvas";$this->renderSidebar() ?>
 						</ul>
 					</aside>
 					
@@ -159,7 +161,7 @@ class pivotTemplate extends BaseTemplate {
 												</form>
 											</li>
 								
-											<?php $this->renderSidebar() ?>
+											<?php $location="";$this->renderSidebar() ?>
 										</ul>
 								</div>
 								
@@ -291,12 +293,12 @@ class pivotTemplate extends BaseTemplate {
 	
 	function renderSidebar() { 
 		$sidebar = $this->getSidebar();
-		foreach ($sidebar as $boxName => $box) {
-			echo '<li><label class="sidebar" id="'.Sanitizer::escapeId( $box['id'] ).'"';echo Linker::tooltip( $box['id'] ).'>'.htmlspecialchars( $box['header'] ).'</label></li>';
+		foreach ($sidebar as $boxName => $box) { 
+			echo '<li><label class="sidebar" id="'.Sanitizer::escapeId( $box['id'] ).$location.'"';echo Linker::tooltip( $box['id'] ).'>'.htmlspecialchars( $box['header'] ).'</label></li>';
 					if ( is_array( $box['content'] ) ) {
 							foreach ($box['content'] as $key => $item) { echo $this->makeListItem($key, $item); }
 								} 
-								}
-		}	
+							}
+		return;	}	
 }
 ?>
