@@ -116,7 +116,7 @@ class pivotTemplate extends BaseTemplate {
 									</form>
 								</li>
 								
-							<?php $location="-off-canvas";$this->renderSidebar() ?>
+							<?php $this->renderSidebar() ?>
 						</ul>
 					</aside>
 					
@@ -161,7 +161,7 @@ class pivotTemplate extends BaseTemplate {
 												</form>
 											</li>
 								
-											<?php $location="";$this->renderSidebar() ?>
+											<?php $this->renderSidebar() ?>
 										</ul>
 								</div>
 								
