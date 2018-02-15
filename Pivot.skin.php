@@ -291,16 +291,13 @@ class pivotTemplate extends BaseTemplate {
 	
 	function renderSidebar() { 
 		$sidebar = $this->getSidebar();
-		$toolbox = $this->getToolbox();
-		foreach ($sidebar as $boxName => $box) { if ( ($box['header'] != wfMessage( 'toolbox' )->text()) ) { 
-			echo '<li id='.Sanitizer::escapeId( $box['id'] ); Linker::tooltip( $box['id'] ).'>';
+		foreach ($sidebar as $boxName => $box) {
+			echo '<div class="sidebar" id="'.Sanitizer::escapeId( $box['id'] ).'"';echo Linker::tooltip( $box['id'] ).'>';
 			echo '<li><label>'.htmlspecialchars( $box['header'] ).'</label></li>';
 					if ( is_array( $box['content'] ) ) {
 							foreach ($box['content'] as $key => $item) { echo $this->makeListItem($key, $item); }
-								} }
-									}
-			echo '<li><label>Toolbox</label></li>';
-					foreach ($toolbox as $key => $tbitem) { echo $this->makeListItem($key, $tbitem); }
+								} 
+									echo '</div>'; }
 		}	
 }
 ?>
