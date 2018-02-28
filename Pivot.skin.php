@@ -11,6 +11,15 @@
 class SkinPivot extends SkinTemplate {
 	public $skinname = 'pivot', $stylename = 'pivot', $template = 'pivotTemplate', $useHeadElement = true;
 
+	public function initPage(OutputPage $out) {
+        parent::initPage($out);
+		global $wgLocalStylePath;
+
+		$viewport_meta = 'width=device-width, user-scalable=yes, initial-scale=1.0';
+		$out->addMeta('viewport', $viewport_meta);
+		$out->addModuleScripts('skins.pivot.js');
+	}
+	
 	public function setupSkinUserCss(OutputPage $out) {
 		parent::setupSkinUserCss($out);
     	global $wgLocalStylePath;
@@ -36,9 +45,6 @@ class SkinPivot extends SkinTemplate {
 			}
 		}
 		$out->addModuleStyles('skins.pivot.styles');
-    	$viewport_meta = 'width=device-width, user-scalable=yes, initial-scale=1.0';
-		$out->addMeta('viewport', $viewport_meta);
-		$out->addModuleScripts('skins.pivot.js');
 		if ( $wgPivotFeatures['preloadFontAwesome'] ) {
 			$out->addHeadItem('font', '<link rel="preload" href="'.$wgLocalStylePath.'/pivot/assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" type="font/woff2" crossorigin="anonymous" />');
 		}
