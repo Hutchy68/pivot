@@ -36,11 +36,14 @@ To activate Pivot for all users and anonymous visitors, you need to set the `$wg
 Use following features in `LocalSettings.php` to change the behavior. 
 
 - `'showActionsForAnon' => true` displays page actions for non-logged-in visitors.
+- `'fixedNavBar' => false` will allow the NavBar to scroll with the content, `true` will lock the NavBar.
+- `'usePivotTabs' => false` set to true to enable Foundation tabs markup in wiki pages.
 - `'showHelpUnderTools' => true` a Link to "Help" will be created under "Tools".
 - `'showRecentChangesUnderTool's => true` a Link to "recent changes" will be created under "Tools".
-- `'IeEdgeCode' => 1` will produce a meta tag with "X-UA-Compatible" content="IE=edge", `2` will sent a header, `0` nothing will be done
-- `'fixedNavBar' => false` will allow the NavBar to scroll with the content, `true` will lock the NavBar.
+- `'wikiName' => &$GLOBALS['wgSitename']` default is the sitename. Set to display a short version without changing the systems wikiname.
+- `'wikiNameDesktop' => &$GLOBALS['wgSitename']` default sitename. Set to display a longer name in desktop view.
 - `'navbarIcon' => false` no icon in mobile view, `true` to use the global set logopath image of the wiki.
+- `'preloadFontAwesome' => false` set to true to preload Font Awesome as a `<head>` element. Useful to overcome MIME type server configurations not set correctly.
 - `'showFooterIcons' => false` will show text in place of footer icons, `true` will output the icons as globally set.
 - `'addThisPUBID' => ''` empty string will not fire the AddThis script, `'ra-##-#######'` publisher ID will allow the run the AddThis script in async on content pages only.
 - `'useAddThisShare' => ''` default empty string, do not use AddThis share, `your_addthis_specific_div_class_string` will insert the share toolbox div directly under page title, but before the tagline with your custom div class.
@@ -51,17 +54,18 @@ These are the default values and the example of the array to change the defaults
 	$wgPivotFeatures = array(
 		'showActionsForAnon' => true,
 		'fixedNavBar' => false,
+		'usePivotTabs' => false,
 		'showHelpUnderTools' => true,
 		'showRecentChangesUnderTools' => true,
 		'wikiName' => &$GLOBALS['wgSitename'],
 		'wikiNameDesktop' => &$GLOBALS['wgSitename'],
 		'navbarIcon' => false,
-		'IeEdgeCode' => 1,
-		'showFooterIcons' => false,
+		'preloadFontAwesome' => false,
+		'showFooterIcons' => true,
 		'addThisPUBID' => '',
 		'useAddThisShare' => '',
 		'useAddThisFollow' => ''
-    );
+	);
 
 
 ### Notes on other skins

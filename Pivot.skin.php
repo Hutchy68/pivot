@@ -13,6 +13,7 @@ class SkinPivot extends SkinTemplate {
 
 	public function setupSkinUserCss(OutputPage $out) {
 		parent::setupSkinUserCss($out);
+    	global $wgLocalStylePath;
 		global $wgPivotFeatures;
 		$wgPivotFeaturesDefaults = array(
 			'showActionsForAnon' => true,
@@ -23,7 +24,7 @@ class SkinPivot extends SkinTemplate {
 			'wikiName' => &$GLOBALS['wgSitename'],
 			'wikiNameDesktop' => &$GLOBALS['wgSitename'],
 			'navbarIcon' => false,
-			'IeEdgeCode' => 1,
+			'preloadFontAwesome' => false,
 			'showFooterIcons' => false,
 			'addThisPUBID' => '',
 			'useAddThisShare' => '',
@@ -34,25 +35,13 @@ class SkinPivot extends SkinTemplate {
 				$wgPivotFeatures[$fgOption] = $fgOptionValue;
 			}
 		}
-		switch ($wgPivotFeatures['IeEdgeCode']) {
-			case 1:
-				$out->addHeadItem('ie-meta', '<meta http-equiv="X-UA-Compatible" content="IE=edge" />');
-				break;
-			case 2:
-				if (isset($_SERVER['HTTP_USER_AGENT']) && (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false))
-					header('X-UA-Compatible: IE=edge');
-				break;
-		}
 		$out->addModuleStyles('skins.pivot.styles');
-	}
-
-	public function initPage(OutputPage $out) {
-		global $wgLocalStylePath;
-		parent::initPage($out);
-
-		$viewport_meta = 'width=device-width, user-scalable=yes, initial-scale=1.0';
+    	$viewport_meta = 'width=device-width, user-scalable=yes, initial-scale=1.0';
 		$out->addMeta('viewport', $viewport_meta);
 		$out->addModuleScripts('skins.pivot.js');
+		if ( $wgPivotFeatures['preloadFontAwesome'] ) {
+			$out->addHeadItem('font', '<link rel="preload" href="'.$wgLocalStylePath.'/pivot/assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" type="font/woff2" crossorigin="anonymous" />');
+		}
 	}
 
 }
@@ -222,7 +211,7 @@ class pivotTemplate extends BaseTemplate {
 											<!-- Go to www.addthis.com/dashboard to customize your tools -->
 											<?php } ?>
 									<?php if ( $this->data['isarticle'] ) { ?><h3 id="tagline"><?php $this->msg( 'tagline' ) ?></h3><?php } ?>
-									<h5 id="sitesub" class="subtitle"><?php $this->html('subtitle') ?></h5>
+									<?php if ( $this->html('subtitle') ) { ?><h5 id="sitesub" class="subtitle"><?php $this->html('subtitle') ?></h5><?php } ?>
 									<div id="contentSub" class="clear_both"></div>
 									<div id="bodyContent" class="mw-bodytext">
 									<?php 
@@ -248,7 +237,7 @@ class pivotTemplate extends BaseTemplate {
 									<footer class="row">
 
 										<div id="footer">
-											<div id="footer-left" class="small-12 medium-8 large-9 columns">
+											<div id="div-footer-left" class="small-12 medium-8 large-9 columns">
 											<ul id="footer-left">
 												<?php foreach ($this->getFooterLinks("flat") as $key) { ?>
 													<li id="footer-<?php echo $key ?>"><?php $this->html($key) ?></li>
@@ -283,15 +272,16 @@ class pivotTemplate extends BaseTemplate {
 				</section>
 				
 			</div>
-			</div>
+		</div>
+		<div>
 			<a class="exit-off-canvas"></a>	
 		</div>
-
+		
 		
 		<?php $this->printTrail(); ?>
 
 			<?php if ($this->data['isarticle'] && $wgPivotFeatures['addThisPUBID'] !== '') { ?>
-				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $wgPivotFeatures['addThisPUBID']; ?>" async="async">></script>
+				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $wgPivotFeatures['addThisPUBID']; ?>" async="async"></script>
 			<?php } ?>	
 		</body>
 		</html>
@@ -303,16 +293,12 @@ class pivotTemplate extends BaseTemplate {
 	
 	function renderSidebar() { 
 		$sidebar = $this->getSidebar();
-		$toolbox = $this->getToolbox();
-		foreach ($sidebar as $boxName => $box) { if ( ($box['header'] != wfMessage( 'toolbox' )->text()) ) { 
-			echo '<li id='.Sanitizer::escapeId( $box['id'] ); Linker::tooltip( $box['id'] ).'>';
-			echo '<li><label>'.htmlspecialchars( $box['header'] ).'</label></li>';
+		foreach ($sidebar as $boxName => $box) { 
+			echo '<li><label class="sidebar" id="'.Sanitizer::escapeId( $box['id'] ).'"';echo Linker::tooltip( $box['id'] ).'>'.htmlspecialchars( $box['header'] ).'</label></li>';
 					if ( is_array( $box['content'] ) ) {
 							foreach ($box['content'] as $key => $item) { echo $this->makeListItem($key, $item); }
-								} }
-									}
-			echo '<li><label>Toolbox</label></li>';
-					foreach ($toolbox as $key => $tbitem) { echo $this->makeListItem($key, $tbitem); }
-		}	
+								} 
+							}
+		return;	}	
 }
 ?>

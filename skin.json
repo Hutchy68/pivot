@@ -1,6 +1,6 @@
 {
 	"name": "Pivot",
-	"version": "1.0.5",
+	"version": "2.0.0",
 	"author": [
 		"Tom Hutchison",
 		"..."
@@ -28,6 +28,7 @@
 				"assets/stylesheets/font-awesome.css",
 				"assets/stylesheets/foundation.css",
 				"assets/stylesheets/pivot.css",
+				"assets/stylesheets/fontawsome.css",
 				"assets/stylesheets/pivot-print.css"
 			]
 		},

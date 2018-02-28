@@ -4,7 +4,7 @@
   Foundation.libs['magellan-expedition'] = {
     name : 'magellan-expedition',
 
-    version : '5.5.2',
+    version : '5.5.3master',
 
     settings : {
       active_class : 'active',
@@ -32,7 +32,7 @@
 
       S(self.scope)
         .off('.magellan')
-        .on('click.fndtn.magellan', '[' + self.add_namespace('data-magellan-arrival') + '] a[href*=#]', function (e) {
+        .on('click.fndtn.magellan', '[' + self.add_namespace('data-magellan-arrival') + '] a[href^="#"]', function (e) {
           var sameHost = ((this.hostname === location.hostname) || !this.hostname),
               samePath = self.filterPathname(location.pathname) === self.filterPathname(this.pathname),
               testHash = this.hash.replace(/(:|\.|\/)/g, '\\$1'),
@@ -59,11 +59,10 @@
               'scrollTop' : scroll_top
             }, settings.duration, settings.easing, function () {
               if (history.pushState) {
-                        history.pushState(null, null, anchor.pathname + '#' + hash);
+                history.pushState(null, null, anchor.pathname + anchor.search + '#' + hash);
+              } else {
+                location.hash = anchor.pathname + anchor.search + '#' + hash;
               }
-                    else {
-                        location.hash = anchor.pathname + '#' + hash;
-                    }
             });
           }
         })
@@ -81,7 +80,7 @@
       $('[' + this.attr_name() + '=fixed]', self.scope).each(function (idx, el) {
         var expedition = $(this),
             settings = expedition.data('magellan-expedition-init'),
-            styles = expedition.attr('styles'), // save styles
+            styles = expedition.attr('style'), // save styles
             top_offset, fixed_top;
 
         expedition.attr('style', '');
