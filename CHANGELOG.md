@@ -1,3 +1,13 @@
+## Version 2.0.0
+
+* [bug fix] Addressed serveral W3C validation errors with HTML output.
+* [bug fix] update JavaScript of Foundation.js to stop deprecation warnings. Now version matches Foundation branch of Foundation 5.5.3 not released.
+* [CSS, bug fix] various changes to CSS to fix bugs and address MediaWiki hidden CSS loading 
+* [enhancement] ability to preload Font Awesome and bypass server setup errors, added as a feature setting
+* [enhancement] move all Font Awesome icons to `::before` CSS from JS pivot.js
+* [b/c changes] remove feature `'IeEdgeCode'` feature set to send a compatibility header
+* [b/c changes] removing support for IE 9 and earlier
+
 ## Version 1.0.5
 
 * [bug fix] Search link was not follow $wgScript path
