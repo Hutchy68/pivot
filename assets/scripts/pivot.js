@@ -11,4 +11,10 @@ jQuery(document).ready(function() {
   jQuery("#pt-notifications-alert").prependTo("#echo-notifications-alerts");
   jQuery("#pt-notifications-notice").prependTo("#echo-notifications-notice");
   
+
+});
+
+  jQuery('.portal > li label').click(function() {
+    $(this).parent().find('ul').toggle();
+	$( this ).toggleClass( "active" );
 });

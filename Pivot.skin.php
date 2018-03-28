@@ -300,10 +300,14 @@ class pivotTemplate extends BaseTemplate {
 	function renderSidebar() { 
 		$sidebar = $this->getSidebar();
 		foreach ($sidebar as $boxName => $box) { 
-			echo '<li><label class="sidebar" id="'.Sanitizer::escapeId( $box['id'] ).'"';echo Linker::tooltip( $box['id'] ).'>'.htmlspecialchars( $box['header'] ).'</label></li>';
+			echo '<ul class="portal" role="navigation">';
+			echo '<li><label class="sidebar active" id="'.Sanitizer::escapeId( $box['id'] ).'"';echo Linker::tooltip( $box['id'] ).'>'.htmlspecialchars( $box['header'] ).'</label>';
 					if ( is_array( $box['content'] ) ) {
+							echo '<ul class="portal-content">';
 							foreach ($box['content'] as $key => $item) { echo $this->makeListItem($key, $item); }
-								} 
+							echo '</ul>';
+								}
+			echo '</li></ul>';
 							}
 		return;	}	
 }

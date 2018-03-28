@@ -740,7 +740,14 @@ margin: 0;
 	border-left: 1px solid #ccc;		
     border-right: 1px solid #ccc;
 }
-
+ul.portal,
+ul.portal-content {
+    margin: 0;
+    list-style: none;
+}
+ul.portal-content {
+	margin: .75em 0;
+}
 ul.side-nav .button {
     margin: 0;
 }
@@ -784,6 +791,24 @@ ul.side-nav label {
 	background: #517398;
     color: #fff;
     padding: .25em .5em;
+}
+#sidebar label.sidebar.active:after {
+    font: normal normal normal 14px/1 FontAwesome;
+    line-height:2em;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    content: '\f068'; /* Unicode character for "plus" sign (+) */
+    color: #fff;
+    float: right;
+}
+#sidebar label.sidebar:after {
+    font: normal normal normal 14px/1 FontAwesome;
+    line-height:2em;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    content: '\f067'; /* Unicode character for "plus" sign (+) */
+    color: #fff;
+    float: right;
 }
 body {
 	background-color: #DCEAEA;
