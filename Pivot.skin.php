@@ -198,7 +198,7 @@ class pivotTemplate extends BaseTemplate {
 										<a href="#" data-options="align:left" data-dropdown="drop1" class="button secondary small radius pull-right hide-for-print" id="drop"><i class="fa fa-navicon fa-lg"><span id="page-actions" class="show-for-medium-up">&nbsp;<?php echo wfMessage( 'actions' )->text() ?></span></i></a>
 										<ul id="drop1" class="tiny content f-dropdown" data-dropdown-content>
 											<?php foreach($this->data['content_actions'] as $key => $tab) { echo preg_replace(array('/\sprimary="1"/', '/\scontext="[a-z]+"/', '/\srel="archives"/'),'',$this->makeListItem($key, $tab)); } ?>
-											<?php wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ));  ?>
+											<?php Hooks::run( 'SkinTemplateToolboxEnd', array( &$this, true ));  ?>
 										</ul>
 
 									<?php endif;
