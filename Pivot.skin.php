@@ -10,15 +10,6 @@
 
 class SkinPivot extends SkinTemplate {
 	public $skinname = 'pivot', $stylename = 'pivot', $template = 'pivotTemplate', $useHeadElement = true;
-
-	public function initPage(OutputPage $out) {
-        parent::initPage($out);
-		global $wgLocalStylePath;
-
-		$viewport_meta = 'width=device-width, user-scalable=yes, initial-scale=1.0';
-		$out->addMeta('viewport', $viewport_meta);
-		$out->addModuleScripts('skins.pivot.js');
-	}
 	
 	public function setupSkinUserCss(OutputPage $out) {
 		parent::setupSkinUserCss($out);
@@ -44,10 +35,22 @@ class SkinPivot extends SkinTemplate {
 				$wgPivotFeatures[$fgOption] = $fgOptionValue;
 			}
 		}
-		$out->addModuleStyles('skins.pivot.styles');
+		
 		if ( $wgPivotFeatures['preloadFontAwesome'] ) {
 			$out->addHeadItem('font', '<link rel="preload" href="'.$wgLocalStylePath.'/pivot/assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" type="font/woff2" crossorigin="anonymous" />');
 		}
+		
+		$out->addModuleStyles('skins.pivot.styles');
+
+	}
+	
+	public function initPage(OutputPage $out) {
+		global $wgLocalStylePath;
+		parent::initPage($out);
+
+		$viewport_meta = 'width=device-width, user-scalable=yes, initial-scale=1.0';
+		$out->addMeta('viewport', $viewport_meta);
+		$out->addModules('skins.pivot.js');
 	}
 
 }
@@ -91,21 +94,21 @@ class pivotTemplate extends BaseTemplate {
 				<?php if ($wgPivotFeatures['fixedNavBar'] != false) echo "<div class='fixed'>"; ?>
 				<nav class="tab-bar hide-for-print">
 					<section id="left-nav-aside" class="left-small show-for-small">
-						<a class="left-off-canvas-toggle"><span id="menu-user"><i class="fa fa-navicon fa-lg"></i></span></a>
+						<a href="#" class="left-off-canvas-toggle"><span id="menu-user"><i class="fa fa-navicon fa-lg"></i></span></a>
 					</section>
 					
 					<section id="middle-nav" class="middle tab-bar-section">
-						<h1 class="title"><a href="<?php echo $this->data['nav_urls']['mainpage']['href']; ?>">
+						<div class="title"><a href="<?php echo $this->data['nav_urls']['mainpage']['href']; ?>">
 					<span class="show-for-medium-up"><?php echo $wgPivotFeatures['wikiNameDesktop']; ?></span>
 						<span class="show-for-small-only">
 						<?php if ($wgPivotFeatures['navbarIcon'] != false) { ?>
 							<img alt="<?php echo $this->text('sitename'); ?>" src="<?php echo $this->text('logopath'); ?>" style="max-width: 64px;height:auto; max-height:36px; display: inline-block; vertical-align:middle;">
 								<?php } ?>
-						<?php echo $wgPivotFeatures['wikiName']; ?></span></a></h1>
+						<?php echo $wgPivotFeatures['wikiName']; ?></span></a></div>
 					</section>
 					
 					<section id="right-nav-aside" class="right-small">
-					<a class="right-off-canvas-toggle"><span id="menu-user"><i class="fa <?php if ($wgUser->isLoggedIn()): ?>fa-user<?php else: ?>fa-navicon<?php endif; ?> fa-lg"></i></span></a>
+					<a href="#" class="right-off-canvas-toggle"><span id="menu-user"><i class="fa <?php if ($wgUser->isLoggedIn()): ?>fa-user<?php else: ?>fa-navicon<?php endif; ?> fa-lg"></i></span></a>
 					</section>
 				</nav>
 				<?php if ($wgPivotFeatures['fixedNavBar'] != false) echo "</div>"; ?>
@@ -210,7 +213,7 @@ class pivotTemplate extends BaseTemplate {
 										$displaytitle = str_replace($pagetitle, $newtitle, $displaytitle);
 									?><h4 class="namespace label"><?php print $namespace; ?></h4><?php } ?>
 									<div id="content">
-									<h2 class="title"><?php print $displaytitle; ?></h2>
+									<h1 class="title"><?php print $displaytitle; ?></h1>
 											<?php if ($wgPivotFeatures['useAddThisShare'] !== '') { ?>
 											<!-- Go to www.addthis.com/dashboard to customize your tools -->
 											<div class="<?php echo $wgPivotFeatures['useAddThisShare']; ?> hide-for-print"></div>

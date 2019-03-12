@@ -1,6 +1,6 @@
 {
 	"name": "Pivot",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"author": [
 		"Tom Hutchison",
 		"..."
@@ -33,7 +33,7 @@
 			]
 		},
 		"skins.pivot.modernizr": {
-			"position": "bottom",
+			"position": "top",
 			"scripts": [
 				"assets/scripts/vendor/modernizr.js"
 			]
@@ -41,8 +41,6 @@
 		"skins.pivot.js": {
 			"position": "bottom",
 			"scripts": [
-				"assets/scripts/vendor/jquery.cookie.js",
-				"assets/scripts/vendor/fastclick.js",
 				"assets/scripts/vendor/placeholder.js",
 				"assets/scripts/foundation/foundation.js",
 				"assets/scripts/foundation/foundation.topbar.js",

@@ -43,9 +43,6 @@ a:hover {
 	text-decoration: underline;
 }
 
-h1.title a {
-    text-decoration: none;
-}
 
 /* ULS Override to force no display of background image */
 .uls-trigger {
@@ -160,10 +157,6 @@ h4.namespace.label {
 
 h2 span {
   display: inline;
-}
-
-h2.title {
-  margin-bottom: 0.1em;
 }
 
 h3#tagline {
@@ -527,7 +520,6 @@ button.ui-button-icon-only {
 
 select {width:auto;}
 
-
 input[type="checkbox"].createboxInput {
   width: auto;
 }
@@ -595,6 +587,10 @@ button, .button {
 
 .top-bar-section .dropdown {
   z-index: 100;
+}
+
+input[type="search"] {
+    margin: 0;
 }
 
 input[type="submit"] {
@@ -871,10 +867,29 @@ h4.namespace.label {
     overflow: hidden;
 }
 
-h2.title {
- font-size:1.65em;
- padding-bottom: 0em;
- margin-top:.5em;
+.tab-bar .title {
+    color: #FFFFFF;
+    line-height: 2.8125rem;
+    margin: 0;
+    font-weight:400;
+    font-size:1.5rem;
+}
+
+h1.title {
+    font-size: 1.8rem;
+    padding-bottom: 0em;
+    margin-top: .5em;
+    margin-bottom: 0.1rem;
+}
+
+section#middle-nav .title a {
+    text-decoration: none;
+}
+
+@media only screen and (min-width: 40.0625em){
+h1.title {
+    font-size: 1.9rem;
+}
 }
 
 h1, h2, h3, h4, h5, h6 { line-height: 1.4; }
@@ -900,7 +915,6 @@ h2 { font-size: 1.55em; }
 h3 { font-size: 1.40em; }
 h4 { font-size: 1.24em; }
 h5 { font-size: 1.16em; }
-h2.title { font-size:1.8em; }
 }
 
 /* Preferences Fixes */
@@ -1058,6 +1072,7 @@ ul[class*="block-grid"] {
 
 .mw-indicators {
 	float: right;
+	font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
 	line-height: 1.6;
 	font-size: 0.875em;
 	position: relative;

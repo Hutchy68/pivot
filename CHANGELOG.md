@@ -1,3 +1,12 @@
+## Version 2.1.0
+
+* [bug fix, compatibility] Replace wfRunHooks with Hooks::run PR #74 issue #75
+* [bug fix, enhancement] Always adds the server name to the h1 tag issue #76 SEO related
+* [CSS] Search Input alignment fix
+* [CSS] Improvements and fixes after issue #76 was fixed
+* [bug-fix, compatibility] Code loading changes, $out->addModuleScripts() to $out->addModules() issue #78
+* [compatibility] Removal of fastclick.js as mobile browsers now deal with touch delay automatically
+
 ## Version 2.0.0
 
 * [bug fix] Addressed serveral W3C validation errors with HTML output.
