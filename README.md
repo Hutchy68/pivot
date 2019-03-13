@@ -5,6 +5,8 @@
 
 A [MediaWiki](http://www.mediawiki.org) skin that focuses on mobile first but will pivot to all viewports with elegance. Supports responsive layouts and has classes predefined for [Semantic MediaWiki](http://semantic-mediawiki.org/wiki/Semantic_MediaWiki). Built on the [Zurb Foundation 5](http://foundation.zurb.com) CSS framework.
 
+Read the docs below (short version) or see [pivot.wikiproject.net](https://pivot.wikiproject.net) for more detailed docs with FAQs and examples of use.
+
 ## Download
 
 First, copy the Pivot source files into your MediaWiki skins directory (see [skinning](https://www.mediawiki.org/wiki/Manual:Skinning) for general information on MediaWiki skins). You can either download the files and extract them from:
