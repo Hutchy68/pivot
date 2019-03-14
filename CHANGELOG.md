@@ -1,3 +1,8 @@
+## Version 2.1.1
+
+* [CSS] Improvements correcting Issues #72 and #69
+* [CSS] Further improvements found similar to Search Input alignment on other form type pages
+
 ## Version 2.1.0
 
 * [bug fix, compatibility] Replace wfRunHooks with Hooks::run PR #74 issue #75

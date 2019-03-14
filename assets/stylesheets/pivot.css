@@ -658,10 +658,8 @@ span.smwttactiveinline span.smwbuiltin {
   font-style: normal;
 }
 
-
 /* MW still generates a label column for checkboxes, this minimizes is */
-div.mw-htmlform-field-HTMLCheckField div.mw-label { height:0; }
-
+.mw-htmlform-field-HTMLCheckField .mw-label { height:0; }
 
 /* UNTIL I CAN DETERMINE WHY toolboxend GENERATES AN EMPTY <li> IN THE MENU, I'M HIDING IT */
 #p-toolboxend { display:none;}
@@ -1103,4 +1101,64 @@ ul[class*="block-grid"] {
 }
 .mw-indicator {
 	display: inline-block;
+}
+
+/* Images the MediaWiki way */
+
+/* Thumbs and Captions */
+.thumbinner {
+    border: 1px solid #c8ccd1;
+    padding: 3px;
+    background-color: #f8f9fa;
+    font-size: 94%;
+    text-align: center;
+    overflow: hidden;
+    margin: auto;
+}
+.thumbcaption {
+    border: 0;
+    line-height: 1.4em;
+    padding: 3px;
+    font-size: 94%;
+    text-align: left;
+}
+.magnify a {
+    display: block;
+    text-indent: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 15px;
+    height: 11px;
+}
+.mw-content-ltr .magnify a {
+    background-image: url(/w/resources/src/mediawiki.skinning/images/magnify-clip-ltr.png);
+}
+
+/* Float right and left styles - Make all MW images responsive for mobile when floated  */
+ 
+.floatright, .tright,
+table.floatright {
+    margin: 0 0 .5em .5em;
+    border: 0;
+}
+ 
+.floatleft,.tleft
+table.floatleft {
+    margin: 0 .5em .5em 0;
+    border: 0;
+}
+
+/* Kill the float for smaller screens and make them align center. */
+
+@media only screen and (max-width: 640px) { 
+    .floatright,
+    table.floatright,
+    .floatleft,
+    table.floatleft,
+    .thumb.tleft,
+    .thumb.tright {
+        text-align: center;
+        float: none;
+        margin: .5em auto;
+    }
 }
