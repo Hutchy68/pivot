@@ -1105,7 +1105,7 @@ ul[class*="block-grid"] {
 
 /* Images the MediaWiki way */
 
-/* Thumbs and Captions */
+/* Images, Thumbs and Captions */
 .thumbinner {
     border: 1px solid #c8ccd1;
     padding: 3px;
@@ -1114,6 +1114,10 @@ ul[class*="block-grid"] {
     text-align: center;
     overflow: hidden;
     margin: auto;
+    max-width: 100%;
+}
+.thumb.tright, .thumb.left {
+    max-width: 100%;
 }
 .thumbcaption {
     border: 0;
@@ -1148,6 +1152,15 @@ table.floatleft {
     border: 0;
 }
 
+.tnone {
+    margin: .5rem 0;
+    border: 0;
+}
+
+.floatnone img {
+    margin: .5rem 0;
+}
+
 /* Kill the float for smaller screens and make them align center. */
 
 @media only screen and (max-width: 640px) { 
@@ -1158,7 +1171,7 @@ table.floatleft {
     .thumb.tleft,
     .thumb.tright {
         text-align: center;
-        float: none;
+        float: none !important;
         margin: .5em auto;
     }
 }
