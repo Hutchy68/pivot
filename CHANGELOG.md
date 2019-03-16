@@ -1,6 +1,6 @@
 ## Version 2.1.1
 
-* [CSS] Improvements correcting Issues #72 and #69
+* [CSS, enhancement] Improvements correcting Issues #72 and #69, images the MW way
 * [CSS] Further improvements found similar to Search Input alignment on other form type pages
 
 ## Version 2.1.0
