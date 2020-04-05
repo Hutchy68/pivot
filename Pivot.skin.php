@@ -60,7 +60,7 @@ class pivotTemplate extends BaseTemplate {
 	public function execute() {
 		global $wgUser;
 		global $wgPivotFeatures;
-		wfSuppressWarnings();
+		Wikimedia\suppressWarnings();
 		$this->html('headelement');
 		switch ($wgPivotFeatures['usePivotTabs']) {
 			case true:
@@ -296,7 +296,7 @@ class pivotTemplate extends BaseTemplate {
 		</html>
 
 <?php
-		wfRestoreWarnings();
+		Wikimedia\restoreWarnings;
 		
 	}
 	

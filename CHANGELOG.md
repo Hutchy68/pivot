@@ -1,3 +1,9 @@
+## Version 2.2
+* [compatibility, deprecated] Fix for deprecated wfSuppressWarnings and wfRestoreWarnings with new Wikimedia\...
+* [b/c break] Version minor bump, MW >= 1.31.0 now required
+* [enhancement] Use of requires MW version in skin.json
+
+
 ## Version 2.1.1
 
 * [CSS, enhancement] Improvements correcting Issues #72 and #69, images the MW way

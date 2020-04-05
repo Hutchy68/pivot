@@ -1,6 +1,6 @@
 {
 	"name": "Pivot",
-	"version": "2.1.1-dev",
+	"version": "2.2.0",
 	"author": [
 		"Tom Hutchison",
 		"..."
@@ -11,6 +11,9 @@
 	"type": "skin",
 	"ValidSkinNames": {
 		"pivot": "Pivot"
+	},
+	"requires": {
+		"MediaWiki": ">= 1.31.0"
 	},
 	"MessagesDirs": {
 		"Skinpivot": [
