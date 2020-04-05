@@ -296,7 +296,7 @@ class pivotTemplate extends BaseTemplate {
 		</html>
 
 <?php
-		Wikimedia\restoreWarnings;
+		Wikimedia\restoreWarnings();
 		
 	}
 	
