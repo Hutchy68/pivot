@@ -2,7 +2,7 @@ body { line-height: 1.6em; font-size: 16px; }
 
 p, ul, ol, dl { font-size: 16px; }
 
-h4,h5,h6 {color: 2e2e2e;}
+h4,h5,h6 {color: #2e2e2e;}
 
 #toc ul, .toc ul { font-size: 16px; }
 
@@ -65,6 +65,10 @@ body.action-formedit .row.hide-on-form-edit { display: none;}
 /* Move the MediaWiki notification area so it isn't on top of the Action menu */
 .mw-notification-area {
   margin-top: 2em;
+}
+/* MediaWiki Search Results */
+.mw-search-results {
+	max-width: 100%;
 }
 /* Also adjust z-index of action menu to force it on top */
 #p-cactions #drop1 {
@@ -218,8 +222,21 @@ ul#drop1.f-dropdown {
     color: #222;
     border-bottom: 1px solid #eee;
 }
-.mw-content-ltr ul {
+.mw-content-ltr ol, .mw-content-rtl .mw-content-ltr ol {
     margin: .5em 0 1em 2em;
+}
+.mw-content-ltr ul, .mw-content-rtl .mw-content-ltr ul {
+    margin: .5em 0 1em 2em;
+}
+.mw-content-ltr ul li > ul,
+.mw-content-rtl .mw-content-ltr ul li > ul  {
+    margin-bottom: .5em;
+    margin-left: 1em;
+}
+.mw-content-ltr ol li > ol,
+.mw-content-rtl .mw-content-ltr ol li > ol  {
+    margin-bottom: .5em;    
+    margin-left: 1em;
 }
 ul.accordion {
 	margin: 0;
@@ -798,6 +815,7 @@ ul.side-nav label {
 	background: #517398;
     color: #fff;
     padding: .25em .5em;
+    pointer-events: none;
 }
 body {
 	background-color: #DCEAEA;

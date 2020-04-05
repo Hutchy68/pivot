@@ -1,4 +1,10 @@
-## Version 2.2
+## Version 2.2.1
+* [bug] Syntax error in pivot.css Issue #89 
+* [bug] Personal tools menu name not translated into other languages Issue #88
+* [bug] Search autocomplete not available on small screens Issue #85
+* [bug] The links in the menu titles on the left seem to be clickable off they should not be. Issue #68 
+
+## Version 2.2.0
 * [compatibility, deprecated] Fix for deprecated wfSuppressWarnings and wfRestoreWarnings with new Wikimedia\...
 * [b/c break] Version minor bump, MW >= 1.31.0 now required
 * [enhancement] Use of requires MW version in skin.json
