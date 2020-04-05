@@ -1,4 +1,5 @@
 ## Version 2.2.1
+* [enhancement] Enumeration and Listings #54
 * [bug] Syntax error in pivot.css Issue #89 
 * [bug] Personal tools menu name not translated into other languages Issue #88
 * [bug] Search autocomplete not available on small screens Issue #85
