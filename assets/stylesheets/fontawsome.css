@@ -29,6 +29,7 @@
 #ca-nstab-main a:before {content: "\f015";}
 #ca-talk a:before {content: "\f0e6";}
 #ca-edit a:before {content: "\f044";}
+#ca-formedit a:before {content: "\f0f6";}
 #ca-history a:before {content: "\f187";}
 #ca-delete a:before {content: "\f014";}
 #ca-move a:before {content: "\f0d1";}
