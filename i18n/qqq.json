@@ -7,5 +7,6 @@
 	"skinname-pivot": "name of skin",
 	"pivot-desc": "description of skin",
 	"pivot-browsermsg": "old versions of IE not supported message",
-	"pivot-menutitle": "menu title"
+	"pivot-menutitle": "menu title",
+	"pivot-personal-tools": "logged in title for personal tools"
 }
