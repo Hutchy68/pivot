@@ -1,3 +1,7 @@
+## Version 2.2.2-dev
+* [bug, enhancement] Fix to allow multiple methods of login such as MW-OAuth2Client - Issue #99
+* [bug, enhancement] Left-menu search (on mobile widths only) doesn't auto-complete #98
+
 ## Version 2.2.1
 * [enhancement] Enumeration and Listings #54
 * [bug] Search results page - limited width #58
