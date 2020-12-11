@@ -1,0 +1,57 @@
+version: 2.0
+
+jobs: 
+  "PHP 7.3": 
+    docker: 
+      - 
+        auth: 
+          password: $DOCKERHUB_PASSWORD
+          username: mydockerhub-user
+        image: "cimg/php:7.3"
+    steps: 
+      - checkout
+      - run: "sudo composer install -n --prefer-dist"
+      - run: "sudo composer self-update"
+      - run: "sudo composer update --no-progress --prefer-dist --profile"
+      - run: 
+          command: "composer test"
+          name: Test PHP7.3
+
+  "PHP 7.4": 
+    docker: 
+      - 
+        auth: 
+          password: $DOCKERHUB_PASSWORD
+          username: mydockerhub-user
+        image: "cimg/php:7.4"
+    steps: 
+      - checkout
+      - run: "sudo composer install -n --prefer-dist"
+      - run: "sudo composer self-update"
+      - run: "sudo composer update --no-progress --prefer-dist --profile"
+      - run: 
+          command: "composer test"
+          name: Test PHP7.4
+
+  "PHP 8.0": 
+    docker: 
+      - auth: 
+          password: $DOCKERHUB_PASSWORD
+          username: mydockerhub-user
+        image: "cimg/php:8.0"
+    steps: 
+      - checkout
+      - run: "sudo composer install -n --prefer-dist"
+      - run: "sudo composer self-update"
+      - run: "sudo composer update --no-progress --prefer-dist --profile"
+      - run: 
+          command: "composer test"
+          name: Test PHP8.0
+
+workflows:
+  version: 2
+  build:
+      jobs:
+        - "PHP 7.3"
+        - "PHP 7.4"
+        - "PHP 8.0"

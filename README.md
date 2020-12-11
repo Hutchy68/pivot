@@ -1,6 +1,6 @@
 # MediaWiki Pivot Skin
 
-[![Build Status](https://travis-ci.org/Hutchy68/pivot.svg?branch=master)](https://travis-ci.org/Hutchy68/pivot)
+[![CircleCI](https://circleci.com/gh/Hutchy68/pivot.svg?style=shield)](https://circleci.com/gh/Hutchy68/pivot)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Hutchy68/pivot/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Hutchy68/pivot/?branch=master)
 
 A [MediaWiki](http://www.mediawiki.org) skin that focuses on mobile first but will pivot to all viewports with elegance. Supports responsive layouts and has classes predefined for [Semantic MediaWiki](http://semantic-mediawiki.org/wiki/Semantic_MediaWiki). Built on the [Zurb Foundation 5](http://foundation.zurb.com) CSS framework.
