@@ -1,3 +1,9 @@
+# Version 2.3.0
+* [compatibility, CSS] Load MW core CSS that was dropped in MW 1.35
+* [code] Drop Travis-CI and move to CircleCI
+* [code] Update php-parallel-lint to a supported branch with PHP 8.0
+* [deprecated, code] Updated deprecated code
+
 ## Version 2.2.2
 * [bug, enhancement] Fix to allow multiple methods of login such as MW-OAuth2Client - Issue #99
 * [bug, enhancement] Left-menu search (on mobile widths only) doesn't auto-complete #98
