@@ -11,9 +11,7 @@
 class SkinPivot extends SkinTemplate {
 	public $skinname = 'pivot', $stylename = 'pivot', $template = 'pivotTemplate', $useHeadElement = true;
 	
-	public function setupSkinUserCss(OutputPage $out) {
-		parent::setupSkinUserCss($out);
-    	global $wgLocalStylePath;
+	public function getDefaultModules() {
 		global $wgPivotFeatures;
 		$wgPivotFeaturesDefaults = array(
 			'showActionsForAnon' => true,
@@ -37,11 +35,11 @@ class SkinPivot extends SkinTemplate {
 		}
 		
 		if ( $wgPivotFeatures['preloadFontAwesome'] ) {
-			$out->addHeadItem('font', '<link rel="preload" href="'.$wgLocalStylePath.'/pivot/assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" type="font/woff2" crossorigin="anonymous" />');
+			$this->getOutput()->addHeadItem('font', '<link rel="preload" href="'.$wgLocalStylePath.'/pivot/assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" type="font/woff2" crossorigin="anonymous" />');
 		}
 		
-		$out->addModuleStyles('skins.pivot.styles');
-
+		$this->getOutput()->addModuleStyles('skins.pivot.styles');
+    	return parent::getDefaultModules();
 	}
 	
 	public function initPage(OutputPage $out) {
@@ -297,7 +295,7 @@ class pivotTemplate extends BaseTemplate {
 	function renderSidebar() { 
 		$sidebar = $this->getSidebar();
 		foreach ($sidebar as $boxName => $box) { 
-			echo '<li><label class="sidebar" id="'.Sanitizer::escapeId( $box['id'] ).'"';echo Linker::tooltip( $box['id'] ).'>'.htmlspecialchars( $box['header'] ).'</label></li>';
+			echo '<li><label class="sidebar" id="'.Sanitizer::escapeIdForAttribute( $box['id'] ).'"';echo Linker::tooltip( $box['id'] ).'>'.htmlspecialchars( $box['header'] ).'</label></li>';
 					if ( is_array( $box['content'] ) ) {
 							foreach ($box['content'] as $key => $item) { echo $this->makeListItem($key, $item); }
 								} 
