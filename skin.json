@@ -1,6 +1,6 @@
 {
 	"name": "Pivot",
-	"version": "2.2.2-dev",
+	"version": "2.3.0-dev",
 	"author": [
 		"Tom Hutchison",
 		"..."
@@ -13,7 +13,7 @@
 		"pivot": "Pivot"
 	},
 	"requires": {
-		"MediaWiki": ">= 1.31.0"
+		"MediaWiki": ">= 1.35.0"
 	},
 	"MessagesDirs": {
 		"Skinpivot": [
@@ -29,6 +29,7 @@
 			"styles": [
 				"assets/stylesheets/normalize.css",
 				"assets/stylesheets/font-awesome.css",
+				"assets/stylesheets/legacy.css",
 				"assets/stylesheets/foundation.css",
 				"assets/stylesheets/pivot.css",
 				"assets/stylesheets/fontawsome.css",
