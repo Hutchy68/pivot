@@ -1,4 +1,6 @@
 ## Version 2.3.1-dev
+* [bug] Make VE compatible with removal of old VE CSS deletion
+* [enhancement] Icon for Purge Extension, MPDF and n-help-mediawiki in Navigation
 
 ## Version 2.3.0
 * [compatibility, CSS] Load MW core CSS that was dropped in MW 1.35
