@@ -16,6 +16,7 @@
 #n-recentchanges a:before {content: "\f0ae";}
 #n-randompage a:before {content: "\f074";}
 #n-help a:before {content: "\f128";}
+#n-help-mediawiki a:before {content: "\f128";}
 
 /* -- Toolbox -- */
 #t-whatlinkshere a:before {content: "\f047";}
@@ -37,14 +38,15 @@
 #ca-unprotect a:before {content: "\f132";}
 #ca-watch a:before {content: "\f006";}
 #ca-unwatch a:before {content: "\f005";}
-
 #ca-ve-edit a:before {content: "\f040";}
 #ca-viewsource a:before {content: "\f02d";}
 #ca-form_edit a:before {content: "\f14b";}
 #ca-purge a:before {content: "\f021";}
+#ca-purge-ext a:before {content: "\f021";}
 #ca-undelete a:before {content: "\f0e2";}
 #ca-ask_delete_permanently a:before {content: "\f0c4";}
 #ca-addsection a:before {content: "\f067";}
+#ca-mpdf a:before {content: "\f1c1";}
 
 /* -- Usermenu -- */
 #pt-userpage a:before {content: "\f007";}
