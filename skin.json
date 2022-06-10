@@ -10,10 +10,26 @@
 	"descriptionmsg": "pivot-desc",
 	"type": "skin",
 	"ValidSkinNames": {
-		"pivot": "Pivot"
+		"pivot": {
+			"class": "SkinPivot",
+			"args": [
+				{
+					"name": "pivot",
+					"template": "PivotTemplate",
+					"bodyOnly": true,
+					"responsive": true,
+					"scripts": [
+						"skins.pivot.js"
+					],
+					"styles": [
+						"skins.pivot.styles"
+					]
+				}
+			]
+		}
 	},
 	"requires": {
-		"MediaWiki": ">= 1.35.0"
+		"MediaWiki": ">= 1.39.0"
 	},
 	"MessagesDirs": {
 		"Skinpivot": [
