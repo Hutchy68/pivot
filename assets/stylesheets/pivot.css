@@ -1153,7 +1153,7 @@ ul[class*="block-grid"] {
     height: 11px;
 }
 .mw-content-ltr .magnify a {
-    background-image: url(/w/resources/src/mediawiki.skinning/images/magnify-clip-ltr.png);
+    background-image: url(images/magnify-clip-ltr.png);
 }
 
 /* Float right and left styles - Make all MW images responsive for mobile when floated  */

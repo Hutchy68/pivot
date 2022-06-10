@@ -518,7 +518,7 @@
 	}
 	
 	.mw-ajax-loader {
-		background-image: url(/w/resources/src/mediawiki.legacy/images/ajax-loader.gif?57f34);
+		background-image: url(images/ajax-loader.gif?57f34);
 		background-position: center center;
 		background-repeat: no-repeat;
 		padding: 16px;
@@ -529,7 +529,7 @@
 	.mw-small-spinner {
 		padding: 10px !important; /* stylelint-disable-line declaration-no-important */
 		margin-right: 0.6em;
-		background-image: url(/w/resources/src/mediawiki.legacy/images/spinner.gif?ca65b);
+		background-image: url(images/spinner.gif?ca65b);
 		background-position: center center;
 		background-repeat: no-repeat;
 	}
