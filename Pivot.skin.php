@@ -9,8 +9,6 @@
  
 
 class SkinPivot extends SkinTemplate {
-	public $skinname = 'pivot', $stylename = 'pivot', $template = 'pivotTemplate', $useHeadElement = true;
-	
 	public function getDefaultModules() {
 		global $wgPivotFeatures;
 		$wgPivotFeaturesDefaults = array(
@@ -37,29 +35,16 @@ class SkinPivot extends SkinTemplate {
 		if ( $wgPivotFeatures['preloadFontAwesome'] ) {
 			$this->getOutput()->addHeadItem('font', '<link rel="preload" href="'.$wgLocalStylePath.'/pivot/assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" type="font/woff2" crossorigin="anonymous" />');
 		}
-		
-		$this->getOutput()->addModuleStyles('skins.pivot.styles');
-    	return parent::getDefaultModules();
+		return parent::getDefaultModules();
 	}
-	
-	public function initPage(OutputPage $out) {
-		global $wgLocalStylePath;
-		parent::initPage($out);
-
-		$viewport_meta = 'width=device-width, user-scalable=yes, initial-scale=1.0';
-		$out->addMeta('viewport', $viewport_meta);
-		$out->addModules('skins.pivot.js');
-	}
-
 }
 
 
-class pivotTemplate extends BaseTemplate {
+class PivotTemplate extends BaseTemplate {
 	public function execute() {
 		global $wgUser;
 		global $wgPivotFeatures;
 		Wikimedia\suppressWarnings();
-		$this->html('headelement');
 		switch ($wgPivotFeatures['usePivotTabs']) {
 			case true:
 			    ob_start();
@@ -277,15 +262,10 @@ class pivotTemplate extends BaseTemplate {
 		<div>
 			<a class="exit-off-canvas"></a>	
 		</div>
-		
-		
-		<?php $this->printTrail(); ?>
 
 			<?php if ($this->data['isarticle'] && $wgPivotFeatures['addThisPUBID'] !== '') { ?>
 				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $wgPivotFeatures['addThisPUBID']; ?>" async="async"></script>
 			<?php } ?>	
-		</body>
-		</html>
 
 <?php
 		Wikimedia\restoreWarnings();
