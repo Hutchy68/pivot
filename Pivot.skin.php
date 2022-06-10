@@ -106,7 +106,7 @@ class pivotTemplate extends BaseTemplate {
 					</section>
 					
 					<section id="right-nav-aside" class="right-small">
-					<a href="#" class="right-off-canvas-toggle"><span id="menu-user"><i class="fa <?php if ($wgUser->isLoggedIn()): ?>fa-user<?php else: ?>fa-navicon<?php endif; ?> fa-lg"></i></span></a>
+					<a href="#" class="right-off-canvas-toggle"><span id="menu-user"><i class="fa <?php if ($wgUser->isRegistered()): ?>fa-user<?php else: ?>fa-navicon<?php endif; ?> fa-lg"></i></span></a>
 					</section>
 				</nav>
 				<?php if ($wgPivotFeatures['fixedNavBar'] != false) echo "</div>"; ?>
@@ -129,7 +129,7 @@ class pivotTemplate extends BaseTemplate {
 					
 					<aside class="right-off-canvas-menu">
 					  <ul class="off-canvas-list">
-					<?php if ($wgUser->isLoggedIn()): ?>
+					<?php if ($wgUser->isRegistered()): ?>
 						<li id="personal-tools"><label><?php echo wfMessage( 'pivot-personal-tools' )->text() ?></label></li>
 						<?php foreach ($this->getPersonalTools() as $key => $item) { echo $this->makeListItem($key, $item); } ?>
 							<?php else: ?>
@@ -173,7 +173,7 @@ class pivotTemplate extends BaseTemplate {
 												<!-- Output page indicators -->
 												<?php echo $this->getIndicators(); ?>
 												<!-- If user is logged in output echo location -->
-												<?php if ($wgUser->isLoggedIn()): ?>
+												<?php if ($wgUser->isRegistered()): ?>
 												<div id="echo-notifications">
 												<div id="echo-notifications-alerts"></div>
 												<div id="echo-notifications-messages"></div>
@@ -189,7 +189,7 @@ class pivotTemplate extends BaseTemplate {
 										</div>
 									</div>
 								
-									<?php if ($wgUser->isLoggedIn() || $wgPivotFeatures['showActionsForAnon']): ?>
+									<?php if ($wgUser->isRegistered() || $wgPivotFeatures['showActionsForAnon']): ?>
 										<a href="#" data-options="align:left" data-dropdown="drop1" class="button secondary small radius pull-right hide-for-print" id="drop"><i class="fa fa-navicon fa-lg"><span id="page-actions" class="show-for-medium-up">&nbsp;<?php echo wfMessage( 'actions' )->text() ?></span></i></a>
 										<ul id="drop1" class="tiny content f-dropdown" data-dropdown-content>
 											<?php foreach($this->data['content_actions'] as $key => $tab) { echo preg_replace(array('/\sprimary="1"/', '/\scontext="[a-z]+"/', '/\srel="archives"/'),'',$this->makeListItem($key, $tab)); } ?>
